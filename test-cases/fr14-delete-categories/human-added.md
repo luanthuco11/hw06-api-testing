@@ -17,4 +17,4 @@ The student authorized autonomous selection of additional cases. These seven cas
 - Student-added cases: **7**
 - Authorization/security cases: **4**
 - Parser/body/identifier robustness cases: **3**
-- Execution status: **not yet executed**
+- Execution status: **all 7 executed; see `execution-results.md`**

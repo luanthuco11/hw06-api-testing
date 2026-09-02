@@ -10599,6 +10599,1990 @@
           ]
         }
       ]
+    },
+    {
+      "name": "FR-14 DELETE Category - single fixture",
+      "item": [
+        {
+          "name": "FR14DELETE-AI-002 delete only category",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "1"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-002 - exact success',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-002 - empty final list',()=>{pm.expect(e).to.eql(null);pm.expect(r.json()).to.eql([]);}));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FR-14 DELETE Category - main audited AI cases",
+      "item": [
+        {
+          "name": "FR14DELETE-AI-001 ordinary delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "1"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-001 - exact delete response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-001 - target absent',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===1)).to.eql(false);}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-003 position-targeted delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "3"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-003 - exact delete response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-003 - target absent',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===3)).to.eql(false);}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-004 position-targeted delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/4",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "4"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-004 - exact delete response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-004 - target absent',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===4)).to.eql(false);}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-005 position-targeted delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "5"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-005 - exact delete response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-005 - target absent',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===5)).to.eql(false);}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-006 delete one duplicate by ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/6",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "6"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-006 - exact delete response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-006 - target absent',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===6)).to.eql(false);}));}",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-006 - other duplicate remains',()=>pm.expect(r.json().some(x=>x.id===60&&x.name==='FR14-DELETE-DUPLICATE')).to.eql(true))); "
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-007 nonexistent positive ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/9999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "9999"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-007 - HTTP 404',()=>pm.expect(pm.response.code).to.eql(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-008 invalid ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "0"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-008 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-009 invalid ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/-1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "-1"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-009 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-010 invalid ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/1.5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "1.5"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-010 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-011 invalid ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/abc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "abc"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-011 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-012 invalid ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/%27%20OR%201%3D1%20--",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "%27%20OR%201%3D1%20--"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-012 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-013 very large positive ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/9007199254740991",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "9007199254740991"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-013 - HTTP 404',()=>pm.expect(pm.response.code).to.eql(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-014 leading-zero valid ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/0014",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "0014"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-014 - exact delete response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-014 - target absent',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===14)).to.eql(false);}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-015 encoded plus ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/%2B15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "%2B15"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-015 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-015 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===15)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-016 missing path ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-016 - HTTP 404',()=>pm.expect(pm.response.code).to.eql(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-017 extra path segment",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/17/extra",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "17",
+                "extra"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-017 - HTTP 404',()=>pm.expect(pm.response.code).to.eql(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-018 missing Authorization",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/18",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "18"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-018 - HTTP 401',()=>pm.expect(pm.response.code).to.eql(401));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-018 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===18)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-019 empty Authorization",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/19",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "19"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-019 - HTTP 401',()=>pm.expect(pm.response.code).to.eql(401));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-019 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===19)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-020 Bearer no credential",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "20"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-020 - HTTP 401',()=>pm.expect(pm.response.code).to.eql(401));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-020 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===20)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-021 malformed token",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer malformed",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/21",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "21"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-021 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-021 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===21)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-022 expired token",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjoxfQ.RkXsEz-C96KG-kmiwxh7L1wqhLjoe_jhieaaIoOzDOo",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/22",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "22"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-022 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-022 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===22)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-023 tampered token",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_B",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/23",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "23"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-023 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-023 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===23)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-024 normal user forbidden",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJleHAiOjQxMDI0NDQ4MDB9.DjjDnIz7OxnUjEVcCnK58SKKhlh6HODx4QgeY6s8RFw",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/24",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "24"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-024 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-024 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===24)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-025 query cannot elevate",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJleHAiOjQxMDI0NDQ4MDB9.DjjDnIz7OxnUjEVcCnK58SKKhlh6HODx4QgeY6s8RFw",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/25?role=admin",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "25"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-025 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-025 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===25)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-026 header cannot elevate",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJleHAiOjQxMDI0NDQ4MDB9.DjjDnIz7OxnUjEVcCnK58SKKhlh6HODx4QgeY6s8RFw",
+                "type": "text"
+              },
+              {
+                "key": "X-Role",
+                "value": "admin",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/26",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "26"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-026 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-026 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===26)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-027 strict response contract",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/27",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "27"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-027 - exact delete response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-027 - target absent',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===27)).to.eql(false);}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-028 repeat delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/28",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "28"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-028 - first exact success',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories/28',method:'DELETE',header:{'X-Student-Id':sid,Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A'}},(e,r)=>pm.test('FR14DELETE-AI-028 - repeat is 404',()=>{pm.expect(e).to.eql(null);pm.expect(r.code).to.eql(404);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-029 ten concurrent same-ID deletes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');const headers={'X-Student-Id':sid,Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A'};let done=0;const codes=[];",
+                  "for(let i=0;i<10;i++)pm.sendRequest({url:base+'/api/categories/29',method:'DELETE',header:headers},(e,r)=>{codes.push(e?0:r.code);done++;if(done===10)pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(ge,gr)=>pm.test('FR14DELETE-AI-029 - one success and nine not-found',()=>{pm.expect(codes.filter(x=>x===200)).to.have.length(1);pm.expect(codes.filter(x=>x===404)).to.have.length(9);pm.expect(gr.json().some(x=>x.id===29)).to.eql(false);}));});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-030 ten concurrent distinct deletes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');const headers={'X-Student-Id':sid,Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A'};const ids=[30,61,62,63,64,65,66,67,68,69];let done=0;const codes=[];",
+                  "ids.forEach(id=>pm.sendRequest({url:base+'/api/categories/'+id,method:'DELETE',header:headers},(e,r)=>{codes.push(e?0:r.code);done++;if(done===ids.length)pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(ge,gr)=>pm.test('FR14DELETE-AI-030 - all distinct targets deleted',()=>{pm.expect(codes).to.have.length(10);codes.forEach(x=>pm.expect(x).to.eql(200));const remaining=new Set(gr.json().map(x=>x.id));ids.forEach(x=>pm.expect(remaining.has(x)).to.eql(false));}));}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-031 referenced category protected",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/31",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "31"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-031 - HTTP 409',()=>pm.expect(pm.response.code).to.eql(409));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-031 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===31)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-032 unrelated delete preserves reference",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/32",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "32"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-032 - exact delete response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-032 - target absent',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===32)).to.eql(false);}));}",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/products',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-032 - unrelated product reference intact',()=>{const p=r.json().find(x=>x.id===2);pm.expect(p.category_id).to.eql(70);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-033 unknown force query ignored",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/33?force=true",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "33"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-033 - exact delete response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-033 - target absent',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===33)).to.eql(false);}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-034 body-free delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/34",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "34"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-034 - exact delete response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-034 - target absent',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===34)).to.eql(false);}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-035 empty JSON object allowed",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/35",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "35"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-035 - exact delete response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-035 - target absent',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===35)).to.eql(false);}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-036 body ID conflict rejected",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/36",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "36"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"id\":37}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-036 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-036 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===36)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-037 text body rejected",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/plain",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/37",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "37"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "force"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-037 - HTTP 415',()=>pm.expect(pm.response.code).to.eql(415));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-037 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===37)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-038 HTML Accept rejected",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/38",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "38"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-038 - HTTP 406',()=>pm.expect(pm.response.code).to.eql(406));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-038 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===38)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-039 CORS preflight",
+          "request": {
+            "method": "OPTIONS",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Origin",
+                "value": "https://student.example",
+                "type": "text"
+              },
+              {
+                "key": "Access-Control-Request-Method",
+                "value": "DELETE",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/39",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "39"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-039 - controlled preflight',()=>{pm.expect(pm.response.code).to.be.oneOf([200,204]);pm.expect(pm.response.headers.get('Access-Control-Allow-Methods')).to.include('DELETE');pm.expect((pm.response.headers.get('Access-Control-Allow-Credentials')||'').toLowerCase()).not.to.eql('true');});",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-039 - OPTIONS did not delete',()=>pm.expect(r.json().some(x=>x.id===39)).to.eql(true)));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-AI-040 non-resurrection",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/40",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "40"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-AI-040 - exact delete response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category deleted'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-AI-040 - target absent',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===40)).to.eql(false);}));}",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');let done=0;let absent=true;for(let i=0;i<10;i++)pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>{done++;absent=absent&&!e&&!r.json().some(x=>x.id===40);if(done===10)pm.test('FR14DELETE-AI-040 - target never reappears',()=>pm.expect(absent).to.eql(true));});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FR-14 DELETE Category - student-added cases",
+      "item": [
+        {
+          "name": "FR14DELETE-H-001 forged admin token",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.ZKupFAdngSe0MwCp00gkvW7LKtTUULGJJWOy6-J5jdA",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/50",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "50"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-H-001 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-H-001 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===50)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-H-002 role/account mismatch",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.ZKupFAdngSe0MwCp00gkvW7LKtTUULGJJWOy6-J5jdA",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/51",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "51"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-H-002 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-H-002 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===51)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-H-003 missing role claim",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZXhwIjo0MTAyNDQ0ODAwfQ.FOD-4zO93t8nen-AH0NDYkzVeS6QBosTs86TAuk67kw",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/52",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "52"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-H-003 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-H-003 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===52)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-H-004 two-token smuggling",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJleHAiOjQxMDI0NDQ4MDB9.DjjDnIz7OxnUjEVcCnK58SKKhlh6HODx4QgeY6s8RFw, Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/53",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "53"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-H-004 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-H-004 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===53)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-H-005 duplicate conflicting body IDs",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/54",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "54"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"id\":10,\"id\":11}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-H-005 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-H-005 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===54)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-H-006 prototype-shaped body",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/55",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "55"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"__proto__\":{\"force\":true}}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-H-006 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14DELETE-H-006 - target remains',()=>{pm.expect(e).to.eql(null);pm.expect(r.json().some(x=>x.id===55)).to.eql(true);}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14DELETE-H-007 4096-digit ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14DELETE-H-007 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));",
+                  "pm.test('FR14DELETE-H-007 - no internal disclosure',()=>{const b=pm.response.text().toLowerCase();pm.expect(b).not.to.include('sqlite');pm.expect(b).not.to.include('node_modules');});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
