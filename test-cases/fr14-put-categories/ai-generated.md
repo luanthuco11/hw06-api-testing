@@ -1,6 +1,6 @@
 # FR-14 PUT Category — AI-Generated Test Cases
 
-Status: unreviewed AI output.
+Status: human-audited and executed; see `human-audit.md` and `execution-results.md`.
 
 ## Contract supplied to the AI
 
@@ -59,5 +59,5 @@ Status: unreviewed AI output.
 ## Coverage count
 
 - AI-generated cases: **40**
-- Human-added cases: **0**
-- Executed cases: **0**
+- Human-added cases: **7**
+- Executed cases: **47**

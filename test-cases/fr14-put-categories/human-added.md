@@ -18,4 +18,4 @@ The student authorized autonomous selection of additional cases. These seven cas
 - Authorization/security cases: **2**
 - Parser/validation cases: **2**
 - Retry, lifecycle-race, and referential-integrity cases: **3**
-- Execution status: **not yet executed**
+- Execution status: **all 7 executed; see `execution-results.md`**

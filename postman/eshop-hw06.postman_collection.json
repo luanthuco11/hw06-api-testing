@@ -8313,6 +8313,2292 @@
           ]
         }
       ]
+    },
+    {
+      "name": "FR-14 PUT Category - audited AI cases",
+      "item": [
+        {
+          "name": "FR14PUT-AI-001 ordinary rename",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-001-UPDATED\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-001 - exact success response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category updated'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(err,res)=>pm.test('FR14PUT-AI-001 - same ID has exact new name',()=>{pm.expect(err).to.eql(null);const rows=res.json();pm.expect(rows.filter(x=>x.id===1)).to.have.length(1);pm.expect(rows.find(x=>x.id===1).name).to.eql(\"FR14-AI-001-UPDATED\");}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-002 Vietnamese Unicode",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "2"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Điện thoại thông minh\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-002 - exact success response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category updated'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(err,res)=>pm.test('FR14PUT-AI-002 - same ID has exact new name',()=>{pm.expect(err).to.eql(null);const rows=res.json();pm.expect(rows.filter(x=>x.id===2)).to.have.length(1);pm.expect(rows.find(x=>x.id===2).name).to.eql(\"Điện thoại thông minh\");}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-003 composed Vietnamese",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "3"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Cà phê sữa đá\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-003 - exact success response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category updated'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(err,res)=>pm.test('FR14PUT-AI-003 - same ID has exact new name',()=>{pm.expect(err).to.eql(null);const rows=res.json();pm.expect(rows.filter(x=>x.id===3)).to.have.length(1);pm.expect(rows.find(x=>x.id===3).name).to.eql(\"Cà phê sữa đá\");}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-004 one-character name",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/4",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "4"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Z\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-004 - exact success response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category updated'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(err,res)=>pm.test('FR14PUT-AI-004 - same ID has exact new name',()=>{pm.expect(err).to.eql(null);const rows=res.json();pm.expect(rows.filter(x=>x.id===4)).to.have.length(1);pm.expect(rows.find(x=>x.id===4).name).to.eql(\"Z\");}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-005 255-character observation",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "5"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "console.log('FR14PUT-AI-005 observed status/body:',pm.response.code,pm.response.text());",
+                  "pm.test('FR14PUT-AI-005 - unspecified length outcome recorded',()=>pm.expect(pm.response.code).to.be.a('number'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-006 256-character observation",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/6",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "6"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "console.log('FR14PUT-AI-006 observed status/body:',pm.response.code,pm.response.text());",
+                  "pm.test('FR14PUT-AI-006 - unspecified length outcome recorded',()=>pm.expect(pm.response.code).to.be.a('number'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-007 trim whitespace",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/7",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "7"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"  FR14-AI-007-UPDATED  \"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-007 - exact success response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category updated'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(err,res)=>pm.test('FR14PUT-AI-007 - same ID has exact new name',()=>{pm.expect(err).to.eql(null);const rows=res.json();pm.expect(rows.filter(x=>x.id===7)).to.have.length(1);pm.expect(rows.find(x=>x.id===7).name).to.eql(\"FR14-AI-007-UPDATED\");}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-008 invalid name",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/8",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "8"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\" \"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-008 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-009 invalid name",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/9",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "9"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"\\t\\n\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-009 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-010 invalid name",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "10"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-010 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-011 invalid name",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/11",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "11"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-011 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-012 invalid name",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/12",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "12"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":null}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-012 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-013 invalid name",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/13",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "13"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":14}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-013 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-014 invalid name",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/14",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "14"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":true}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-014 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-015 invalid name",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "15"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":{\"value\":\"x\"}}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-015 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-016 invalid name",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/16",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "16"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":[\"x\"]}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-016 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-017 missing body",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/17",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "17"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-017 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-018 malformed JSON",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/18",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "18"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-018 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));",
+                  "pm.test('FR14PUT-AI-018 - no stack/internal path',()=>pm.expect(pm.response.text().toLowerCase()).not.to.include('node_modules')); "
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-019 text/plain JSON",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/plain",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/19",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "19"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-019\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-019 - HTTP 415',()=>pm.expect(pm.response.code).to.eql(415));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-020 form body",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "20"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "name=FR14-AI-020"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-020 - HTTP 415',()=>pm.expect(pm.response.code).to.eql(415));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-021 smallest positive ID",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/21",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "21"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-021-UPDATED\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-021 - exact success response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category updated'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(err,res)=>pm.test('FR14PUT-AI-021 - same ID has exact new name',()=>{pm.expect(err).to.eql(null);const rows=res.json();pm.expect(rows.filter(x=>x.id===21)).to.have.length(1);pm.expect(rows.find(x=>x.id===21).name).to.eql(\"FR14-AI-021-UPDATED\");}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-022 nonexistent ID",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/9999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "9999"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-022\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-022 - HTTP 404',()=>pm.expect(pm.response.code).to.eql(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-023 invalid ID",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "0"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-23\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-023 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-024 invalid ID",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/-1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "-1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-24\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-024 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-025 invalid ID",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/1.5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "1.5"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-25\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-025 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-026 invalid ID",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/abc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "abc"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-26\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-026 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-027 invalid ID",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/%27%20OR%201%3D1%20--",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "%27%20OR%201%3D1%20--"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-27\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-027 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-028 missing Authorization",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/28",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "28"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-028\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-028 - HTTP 401',()=>pm.expect(pm.response.code).to.eql(401));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-029 empty Authorization",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/29",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "29"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-029\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-029 - HTTP 401',()=>pm.expect(pm.response.code).to.eql(401));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-030 malformed token",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer malformed",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/30",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "30"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-030\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-030 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-031 expired token",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjoxfQ.RkXsEz-C96KG-kmiwxh7L1wqhLjoe_jhieaaIoOzDOo",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/31",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "31"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-031\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-031 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-032 normal user forbidden",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJleHAiOjQxMDI0NDQ4MDB9.DjjDnIz7OxnUjEVcCnK58SKKhlh6HODx4QgeY6s8RFw",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/32",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "32"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-032\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-032 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-033 query/header cannot elevate",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJleHAiOjQxMDI0NDQ4MDB9.DjjDnIz7OxnUjEVcCnK58SKKhlh6HODx4QgeY6s8RFw",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-Role",
+                "value": "admin",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/33?role=admin",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "33"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-033\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-033 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-034 reject extra fields",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/34",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "34"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-034\",\"id\":999,\"role\":\"admin\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-034 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-035 rename to duplicate",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/35",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "35"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-DUPLICATE-TARGET\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-035 - exact success response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category updated'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(err,res)=>pm.test('FR14PUT-AI-035 - same ID has exact new name',()=>{pm.expect(err).to.eql(null);const rows=res.json();pm.expect(rows.filter(x=>x.id===35)).to.have.length(1);pm.expect(rows.find(x=>x.id===35).name).to.eql(\"FR14-DUPLICATE-TARGET\");}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-036 stored XSS literal",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/36",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "36"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"<script>alert(1)</script>\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-036 - exact success response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category updated'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(err,res)=>pm.test('FR14PUT-AI-036 - same ID has exact new name',()=>{pm.expect(err).to.eql(null);const rows=res.json();pm.expect(rows.filter(x=>x.id===36)).to.have.length(1);pm.expect(rows.find(x=>x.id===36).name).to.eql(\"<script>alert(1)</script>\");}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-037 SQL-like literal",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/37",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "37"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"x', name='owned' --\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-037 - exact success response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category updated'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(err,res)=>pm.test('FR14PUT-AI-037 - same ID has exact new name',()=>{pm.expect(err).to.eql(null);const rows=res.json();pm.expect(rows.filter(x=>x.id===37)).to.have.length(1);pm.expect(rows.find(x=>x.id===37).name).to.eql(\"x', name='owned' --\");}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-038 strict response contract",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/38",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "38"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-038\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-038 - exact success response',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category updated'});});",
+                  "if(pm.response.code===200){const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(err,res)=>pm.test('FR14PUT-AI-038 - same ID has exact new name',()=>{pm.expect(err).to.eql(null);const rows=res.json();pm.expect(rows.filter(x=>x.id===38)).to.have.length(1);pm.expect(rows.find(x=>x.id===38).name).to.eql(\"FR14-AI-038\");}));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-039 ten concurrent renames",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');const auth='Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A';const names=Array.from({length:10},(_,i)=>'FR14-AI-039-'+i);const headers={'X-Student-Id':sid,Authorization:auth,'Content-Type':'application/json'};let done=0;const codes=[];",
+                  "names.forEach(name=>pm.sendRequest({url:base+'/api/categories/39',method:'PUT',header:headers,body:{mode:'raw',raw:JSON.stringify({name})}},(err,res)=>{codes.push(err?0:res.code);done++;if(done===names.length)pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14PUT-AI-039 - one row and submitted final value',()=>{pm.expect(codes).to.have.length(10);codes.forEach(x=>pm.expect(x).to.eql(200));const rows=r.json().filter(x=>x.id===39);pm.expect(rows).to.have.length(1);pm.expect(names).to.include(rows[0].name);}));}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-AI-040 reject HTML Accept",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/40",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "40"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-AI-040\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-AI-040 - HTTP 406',()=>pm.expect(pm.response.code).to.eql(406));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FR-14 PUT Category - student-added cases",
+      "item": [
+        {
+          "name": "FR14PUT-H-001 forged admin token",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.ZKupFAdngSe0MwCp00gkvW7LKtTUULGJJWOy6-J5jdA",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/41",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "41"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-H-001\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-H-001 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-H-002 role/account mismatch",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.ZKupFAdngSe0MwCp00gkvW7LKtTUULGJJWOy6-J5jdA",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/42",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "42"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-H-002\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-H-002 - HTTP 403',()=>pm.expect(pm.response.code).to.eql(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-H-003 duplicate JSON keys",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/43",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "43"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Safe\",\"name\":\"   \"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-H-003 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-H-004 prototype-shaped extra field",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/44",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "44"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-H-004\",\"__proto__\":{\"role\":\"admin\"}}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-H-004 - HTTP 400',()=>pm.expect(pm.response.code).to.eql(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-H-005 idempotent replay",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');const headers={'X-Student-Id':sid,Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A','Content-Type':'application/json'};const req={url:base+'/api/categories/45',method:'PUT',header:headers,body:{mode:'raw',raw:JSON.stringify({name:'FR14-H-005-UPDATED'})}};",
+                  "pm.sendRequest(req,(e1,r1)=>pm.sendRequest(req,(e2,r2)=>pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e3,r3)=>pm.test('FR14PUT-H-005 - replay is idempotent',()=>{pm.expect(e1).to.eql(null);pm.expect(e2).to.eql(null);pm.expect(r1.code).to.eql(200);pm.expect(r2.code).to.eql(200);pm.expect(r1.json()).to.eql({message:'Category updated'});pm.expect(r2.json()).to.eql({message:'Category updated'});const rows=r3.json().filter(x=>x.id===45);pm.expect(rows).to.have.length(1);pm.expect(rows[0].name).to.eql('FR14-H-005-UPDATED');}))));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-H-006 update/delete race",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');const headers={'X-Student-Id':sid,Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A','Content-Type':'application/json'};let done=0;let updateCode=0;let deleteCode=0;function finish(){done++;if(done===2)pm.sendRequest({url:base+'/api/categories',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14PUT-H-006 - delete wins final lifecycle',()=>{pm.expect(updateCode).to.be.oneOf([200,404]);pm.expect(deleteCode).to.eql(200);pm.expect(r.json().some(x=>x.id===46)).to.eql(false);}));}",
+                  "pm.sendRequest({url:base+'/api/categories/46',method:'PUT',header:headers,body:{mode:'raw',raw:JSON.stringify({name:'FR14-H-006-UPDATED'})}},(e,r)=>{updateCode=e?0:r.code;finish();});pm.sendRequest({url:base+'/api/categories/46',method:'DELETE',header:headers},(e,r)=>{deleteCode=e?0:r.code;finish();});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FR14PUT-H-007 product reference stability",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Student-Id",
+                "value": "{{studentId}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiZXhwIjo0MTAyNDQ0ODAwfQ.7jXL2DpXWpd25qgJLSarowLisHj_6_bpZkY3MPQuc_A",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/47",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "47"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FR14-H-007-UPDATED\"}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('FR14PUT-H-007 - exact update success',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql({message:'Category updated'});});",
+                  "const base=pm.collectionVariables.get('baseUrl');const sid=pm.collectionVariables.get('studentId');pm.sendRequest({url:base+'/api/products',method:'GET',header:{'X-Student-Id':sid}},(e,r)=>pm.test('FR14PUT-H-007 - product remains unchanged',()=>{pm.expect(e).to.eql(null);const p=r.json().find(x=>x.id===1);pm.expect(p.name).to.eql('FR14-PRODUCT-SENTINEL');pm.expect(p.category_id).to.eql(47);pm.expect(p.description).to.eql('unchanged-description');}));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }
