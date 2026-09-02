@@ -1,0 +1,59 @@
+name: API smoke
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  newman-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out assignment
+        uses: actions/checkout@v4
+
+      - name: Check out teacher SUT
+        uses: actions/checkout@v4
+        with:
+          repository: ttbhanh/eshop-sut
+          ref: 85af3ba875c88283615e22cb108f13e2fccaf0e9
+          path: sut
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install Newman dependencies
+        run: npm ci
+
+      - name: Install and start SUT
+        working-directory: sut/backend
+        run: |
+          npm ci
+          nohup node server.js > server.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:3000/api/categories > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat server.log
+          exit 1
+
+      - name: Run Postman smoke collection
+        run: >-
+          npx newman run postman/ci-smoke.postman_collection.json
+          --reporters cli,junit
+          --reporter-junit-export reports/ci-smoke.xml
+
+      - name: Upload CI evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-smoke-evidence
+          path: |
+            reports/ci-smoke.xml
+            sut/backend/server.log
+          if-no-files-found: warn

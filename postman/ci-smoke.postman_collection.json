@@ -1,0 +1,82 @@
+{
+  "info": {
+    "_postman_id": "23127414-0000-4000-8000-000000000006",
+    "name": "HW06 CI Smoke - 23127414",
+    "description": "Small known-good pipeline check. Contract-conformance failures remain in the full audited collection.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.request.headers.upsert({key:'X-Student-Id',value:pm.collectionVariables.get('studentId')});",
+          "console.log('X-Student-Id: '+pm.collectionVariables.get('studentId'));"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://127.0.0.1:3000", "type": "string" },
+    { "key": "studentId", "value": "23127414", "type": "string" },
+    { "key": "ciExpectedStatus", "value": "200", "type": "string" },
+    { "key": "adminToken", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "CI-001 public category smoke",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{baseUrl}}/api/categories", "host": ["{{baseUrl}}"], "path": ["api", "categories"] }
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "type": "text/javascript",
+          "exec": [
+            "pm.test('CI-001 - configured status',()=>pm.expect(pm.response.code).to.eql(Number(pm.collectionVariables.get('ciExpectedStatus'))));",
+            "pm.test('CI-001 - seeded category array',()=>{const rows=pm.response.json();pm.expect(rows).to.be.an('array').with.length(3);rows.forEach(x=>pm.expect(Object.keys(x).sort()).to.eql(['id','name']));});"
+          ]
+        }
+      }]
+    },
+    {
+      "name": "CI-002 admin login smoke",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json", "type": "text" }],
+        "body": { "mode": "raw", "raw": "{\"email\":\"admin@eshop.com\",\"password\":\"Admin123!\"}" },
+        "url": { "raw": "{{baseUrl}}/api/login", "host": ["{{baseUrl}}"], "path": ["api", "login"] }
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "type": "text/javascript",
+          "exec": [
+            "pm.test('CI-002 - login works',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json().token).to.be.a('string').and.not.empty;});",
+            "if(pm.response.code===200)pm.collectionVariables.set('adminToken',pm.response.json().token);"
+          ]
+        }
+      }]
+    },
+    {
+      "name": "CI-003 authenticated history smoke",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}", "type": "text" }],
+        "url": { "raw": "{{baseUrl}}/api/orders/my-orders", "host": ["{{baseUrl}}"], "path": ["api", "orders", "my-orders"] }
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "type": "text/javascript",
+          "exec": [
+            "pm.test('CI-003 - authorized empty history',()=>{pm.expect(pm.response.code).to.eql(200);pm.expect(pm.response.json()).to.eql([]);});"
+          ]
+        }
+      }]
+    }
+  ]
+}
