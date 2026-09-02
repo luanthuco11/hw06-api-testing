@@ -18,4 +18,4 @@ The student authorized autonomous selection of additional test cases. These seve
 - Authorization/security cases: **2**
 - Parser and validation cases: **3**
 - Duplicate/concurrency cases: **2**
-- Execution status: **not yet executed**
+- Execution status: **all 7 executed; see `execution-results.md`**
