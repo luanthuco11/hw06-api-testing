@@ -16,4 +16,4 @@ The student authorized autonomous selection of additional test cases on 2026-09-
 - Student-added cases: **6**
 - Security and parser-robustness cases: **4**
 - Concurrency and high-volume integrity cases: **2**
-- Execution status: **not yet executed**
+- Execution status: **all 6 executed; see `execution-results.md`**
