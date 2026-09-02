@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audited API Test Workflow"
+  short_description: "Audit, build, run, and report API contract tests"
+  default_prompt: "Apply the audited API testing workflow to the selected endpoint."
