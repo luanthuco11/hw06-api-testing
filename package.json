@@ -5,10 +5,13 @@
   "description": "Postman and Newman test suite for EShop HW06",
   "scripts": {
     "test:api": "newman run postman/eshop-hw06.postman_collection.json -e postman/local.postman_environment.json",
-    "test:api:report": "newman run postman/eshop-hw06.postman_collection.json -e postman/local.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export reports/newman/newman-report.html"
+    "test:api:report": "newman run postman/eshop-hw06.postman_collection.json -e postman/local.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export reports/newman/newman-report.html",
+    "build:deliverables": "node scripts/generate-deliverables.js"
   },
   "devDependencies": {
+    "exceljs": "^4.4.0",
     "newman": "^6.2.1",
-    "newman-reporter-htmlextra": "^1.23.1"
+    "newman-reporter-htmlextra": "^1.23.1",
+    "pdfkit": "^0.20.2"
   }
 }

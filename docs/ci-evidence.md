@@ -14,7 +14,8 @@
 | --- | --- | --- | --- |
 | Initial all-pass run | `2aa67f6` | [GitHub Actions run 33666325233](https://github.com/luanthuco11/hw06-api-testing/actions/runs/33666325233) | Success |
 | Intentional one-fail demonstration | `ee9c636` | [GitHub Actions run 33708693475](https://github.com/luanthuco11/hw06-api-testing/actions/runs/33708693475) | Failure |
+| Final restored run | `eb779bd` | [GitHub Actions run 33708895230](https://github.com/luanthuco11/hw06-api-testing/actions/runs/33708895230) | Success |
 
-The failing commit changed only `ciExpectedStatus` from 200 to 418. Therefore CI-001 produced one intentional assertion failure while the remaining smoke assertions stayed valid. The next commit restores 200 so the repository does not remain red.
+The failing commit changed only `ciExpectedStatus` from 200 to 418. Therefore CI-001 produced one intentional assertion failure while the remaining smoke assertions stayed valid. The next commit restored 200, and the final public run confirms that the repository returned to green.
 
 Real UI screenshots remain pending because no connected interactive browser is available in the current environment. The immutable public run URLs above are preserved for verification and later screenshot capture.

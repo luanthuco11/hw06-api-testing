@@ -10,13 +10,13 @@
 
 ## Delivery sequence
 
-1. Establish reproducible local SUT setup and test data reset.
-2. For each endpoint, commit AI generation, human audit/corrections, human extension, and execution evidence separately.
-3. Export the Postman collection, environment, data files, and Newman HTML report.
-4. Report genuine defects in Markdown and GitHub Issues with real screenshots.
-5. Add GitHub Actions and retain links to one passing and one intentionally failing run; restore the final branch to passing.
-6. Design and implement the API-test-generator skill, validate it, and record a demo.
-7. Complete the reports, spreadsheet, AI critique, commit log, PDFs, and submission archive.
+1. [x] Establish reproducible local SUT setup and test data reset.
+2. [x] For each endpoint, commit AI generation, human audit/corrections, human extension, and execution evidence separately.
+3. [x] Export the Postman collection, environment, fixtures, and Newman HTML reports.
+4. [ ] Create GitHub Issues and attach real screenshots. Markdown defect reports are complete; browser evidence is pending.
+5. [x] Add GitHub Actions, retain one passing and one intentionally failing run, and restore the final branch to passing.
+6. [ ] Design and implement the API-test-generator skill, validate it, and record a demo. Implementation/validation are complete; student diagram/video remain.
+7. [ ] Complete reports, spreadsheet, AI critique, commit log, PDFs, and submission archive. Documents are generated; final grade, commit log snapshot, and ZIP remain.
 
 ## Evidence constraints
 
