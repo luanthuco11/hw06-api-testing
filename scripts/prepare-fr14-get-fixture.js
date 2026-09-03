@@ -1,6 +1,6 @@
 const path = require("path");
 
-const backend = path.resolve(__dirname, "..", "..", "eshop-sut", "backend");
+const backend = require("./sut-backend");
 const sqlite3 = require(path.join(backend, "node_modules", "sqlite3")).verbose();
 const databasePath = path.join(backend, "database.sqlite");
 const mode = process.argv[2] || "main";

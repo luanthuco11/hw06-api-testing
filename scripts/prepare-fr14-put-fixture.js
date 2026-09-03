@@ -1,6 +1,6 @@
 const path = require("path");
 
-const backend = path.resolve(__dirname, "..", "..", "eshop-sut", "backend");
+const backend = require("./sut-backend");
 const sqlite3 = require(path.join(backend, "node_modules", "sqlite3")).verbose();
 const db = new sqlite3.Database(path.join(backend, "database.sqlite"));
 const run = (sql, params = []) => new Promise((resolve, reject) => db.run(sql, params, function callback(error) {

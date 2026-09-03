@@ -48,6 +48,11 @@ jobs:
           --reporters cli,junit
           --reporter-junit-export reports/ci-smoke.xml
 
+      - name: Run full audited suite against accepted baseline
+        env:
+          ESHOP_SUT_BACKEND: ${{ github.workspace }}/sut/backend
+        run: npm run test:api:ci-full
+
       - name: Upload CI evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -55,5 +60,6 @@ jobs:
           name: api-smoke-evidence
           path: |
             reports/ci-smoke.xml
+            reports/ci-full/
             sut/backend/server.log
           if-no-files-found: warn
