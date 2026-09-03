@@ -21,9 +21,13 @@ Every request includes `X-Student-Id: 23127414` through the collection pre-reque
 
 | Metric | Result |
 | --- | ---: |
+| Selected API/feature groups | 3 |
+| Independently tested endpoints | 6 |
 | AI-generated cases | 240 |
 | Human-added cases | 39 |
 | Total executed cases | 279 |
+| Passing test cases | 157 |
+| Failing test cases | 122 |
 | HTTP requests | 585 |
 | Assertions passed | 247 |
 | Assertions failed | 136 |
