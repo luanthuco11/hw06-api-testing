@@ -39,6 +39,9 @@ The assertion failures are retained as evidence of SUT contract mismatches. They
 - AI audit: [`docs/ai-audit.md`](docs/ai-audit.md)
 - AI critique: [`docs/ai-critique.md`](docs/ai-critique.md)
 - CI evidence: [`docs/ci-evidence.md`](docs/ci-evidence.md)
+- Student-reviewed generator diagram: [`docs/agent-skill-diagram.png`](docs/agent-skill-diagram.png) and [`docs/agent-skill-diagram.mmd`](docs/agent-skill-diagram.mmd)
+- Screenshot evidence: [`evidence`](evidence)
+- Published defect Issues: [GitHub Issues](https://github.com/luanthuco11/hw06-api-testing/issues)
 - Excel workbook: [`reports/HW06_Test_Cases_23127414.xlsx`](reports/HW06_Test_Cases_23127414.xlsx)
 - PDF report: [`reports/HW06_Report_23127414.pdf`](reports/HW06_Report_23127414.pdf)
 - Reusable Agent Skill: [`agent-skill/audited-api-test-workflow/SKILL.md`](agent-skill/audited-api-test-workflow/SKILL.md)
@@ -58,6 +61,7 @@ The generator reads raw Newman JSON from the sibling `.runtime` diagnostics dire
 - [Passing run](https://github.com/luanthuco11/hw06-api-testing/actions/runs/33666325233)
 - [Intentional one-failure run](https://github.com/luanthuco11/hw06-api-testing/actions/runs/33708693475)
 - [Final restored passing run](https://github.com/luanthuco11/hw06-api-testing/actions/runs/33708895230)
+- [Full audited-suite baseline run](https://github.com/luanthuco11/hw06-api-testing/actions/runs/33716503581) — 279 cases, 585 requests, exact accepted baseline
 
 ## Self-assessment checkpoint
 
@@ -81,9 +85,9 @@ Completion evidence:
 | AI audit and 200–300 word critique | Audit log and 239-word critique | Complete |
 | CI pass and one-fail history | Three immutable public runs | Complete |
 | Reusable Agent Skill | Validated skill plus two forward-tested scripts | Complete |
-| GitHub Issues with screenshots | Requires connected interactive browser/manual capture | Pending student action |
-| Student-drawn diagram | Must be drawn by the student | Pending student action |
-| Demo video | Recording script is ready | Pending student action |
+| GitHub Issues with screenshots | 27 published Issues, each with one representative execution screenshot | Complete |
+| Generator diagram | Mermaid source and rendered PNG reviewed by the student under the teacher-approved AI policy | Complete |
+| Demo video | Recording script is ready; the assignment describes video as encouraged | Optional |
 | Final self-assessed grade/ZIP | Student must choose grade from official rubric | Pending student decision |
 
-See [`docs/student-actions.md`](docs/student-actions.md) for the remaining non-fabricable evidence steps.
+See [`docs/student-actions.md`](docs/student-actions.md) for the final student-confirmation steps.

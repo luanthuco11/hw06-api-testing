@@ -13,6 +13,6 @@
 | Folder selection | Runs only the folder matching a prepared deterministic fixture. | Newman commands documented in endpoint reports |
 | Multiple reporters | Produces CLI, JSON, JUnit, and htmlextra HTML outputs for diagnostics, CI, and submission evidence. | `reports/newman`, `.runtime`, and GitHub Actions artifact |
 | Newman CLI integration | Executes exported Postman artifacts reproducibly outside the GUI. | npm scripts and execution metadata |
-| CI/CD execution | GitHub Actions installs the pinned SUT and runs the smoke collection automatically. | `.github/workflows/api-smoke.yml` and public run links |
+| CI/CD execution | GitHub Actions installs the pinned SUT, runs the smoke collection, executes all 12 deterministic full-suite modes, and verifies the exact accepted baseline. | `.github/workflows/api-smoke.yml`, `scripts/run-full-ci-suite.js`, and public run links |
 
 Postman monitors, mock servers, and cloud workspaces were not claimed because they were not needed for a local, deterministic SQLite SUT and no attributable execution evidence was produced for them.

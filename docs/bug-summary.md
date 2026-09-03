@@ -1,5 +1,8 @@
 # Confirmed Defect Candidate Summary
 
+- Published Issues: <https://github.com/luanthuco11/hw06-api-testing/issues>
+- Representative screenshots: [`evidence`](../evidence)
+
 | ID | Endpoint | Finding | Proposed severity |
 | --- | --- | --- | --- |
 | BUG-FR01-001 | Register | Missing server-side field validation | High |
@@ -30,4 +33,4 @@
 | BUG-FR14DELETE-005 | Category DELETE | Empty Authorization classified incorrectly | Low |
 | BUG-FR14DELETE-006 | Category DELETE | Unacceptable response media is ignored | Low |
 
-These 27 entries are endpoint-attributable candidates. Related root causes may be linked across GitHub Issues, but evidence and affected test IDs remain in the endpoint execution reports.
+These 27 endpoint-attributable candidates are published as GitHub Issues. Each Issue contains one representative screenshot; affected test IDs and full evidence remain in the endpoint execution reports.

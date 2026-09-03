@@ -1,10 +1,13 @@
 const fs = require("fs");
 const path = require("path");
+const { execFileSync } = require("child_process");
 const ExcelJS = require("exceljs");
 const PDFDocument = require("pdfkit");
 
 const root = path.resolve(__dirname, "..");
-const runtime = path.resolve(root, "..", ".runtime");
+const runtimeCandidates = [path.resolve(root, "..", ".runtime"), path.resolve(root, "..")];
+const runtime = runtimeCandidates.find((candidate) => fs.existsSync(path.join(candidate, "fr01")));
+if (!runtime) throw new Error(`Cannot locate raw Newman evidence. Checked: ${runtimeCandidates.join(", ")}`);
 const reports = path.join(root, "reports");
 fs.mkdirSync(reports, { recursive: true });
 
@@ -73,15 +76,13 @@ execution.failingCaseCount = failingIds.size;
 execution.passingCaseCount = execution.caseItems - failingIds.size;
 execution.studentId = "23127414";
 execution.sutCommit = "85af3ba875c88283615e22cb108f13e2fccaf0e9";
-execution.generatedAt = "2026-09-03T02:46:48.000Z";
+execution.generatedAt = new Date().toISOString();
 execution.failingCaseIds = [...failingIds].sort();
 fs.writeFileSync(path.join(reports, "execution-summary.json"), `${JSON.stringify(execution, null, 2)}\n`, "utf8");
-const reflogPath = path.join(root, ".git", "logs", "HEAD");
-const commitLog = fs.readFileSync(reflogPath, "utf8").trim().split(/\r?\n/).map((line) => {
-  const match = line.match(/^[0-9a-f]+ ([0-9a-f]+) .+> (\d+) [+-]\d+\t(?:commit: )?(.*)$/);
-  if (!match) return null;
-  return `${match[1].slice(0, 7)}\t${new Date(Number(match[2]) * 1000).toISOString()}\t${match[3]}`;
-}).filter(Boolean).reverse().join("\n");
+const commitLog = execFileSync("git", ["log", "--reverse", "--date=iso-strict", "--pretty=format:%h%x09%ad%x09%s"], {
+  cwd: root,
+  encoding: "utf8",
+}).trim();
 fs.writeFileSync(path.join(reports, "commit-log.txt"), `${commitLog}\n`, "utf8");
 
 const cases = [];
@@ -153,6 +154,20 @@ for (const endpoint of endpoints) {
 }
 styleSheet(audit, [30, 14, 22, 18, 14]);
 
+const reportFiles = ["test-report.md", "postman-features.md", "bug-summary.md", "ai-audit.md", "ai-critique.md", "ci-evidence.md", "agent-skill-pseudocode.md"];
+
+function writeMarkdownReport() {
+  const sections = reportFiles.map((file) => fs.readFileSync(path.join(root, "docs", file), "utf8").trim());
+  sections.push([
+    "# Agent Skill Generator Diagram",
+    "",
+    "![Audited API Test Generator workflow](../docs/agent-skill-diagram.png)",
+    "",
+    "Editable Mermaid source: [`docs/agent-skill-diagram.mmd`](../docs/agent-skill-diagram.mmd)",
+  ].join("\n"));
+  fs.writeFileSync(path.join(reports, "HW06_Report_23127414.md"), `${sections.join("\n\n\\newpage\n\n")}\n`, "utf8");
+}
+
 async function writePdf() {
   const output = path.join(reports, "HW06_Report_23127414.pdf");
   const doc = new PDFDocument({ size: "A4", margins: { top: 42, bottom: 42, left: 46, right: 46 }, info: { Title: "HW06 API Testing Report - 23127414", Author: "Student 23127414" } });
@@ -164,8 +179,7 @@ async function writePdf() {
   const bold = boldCandidates.find(fs.existsSync);
   if (regular) doc.registerFont("Body", regular); else doc.registerFont("Body", "Helvetica");
   if (bold) doc.registerFont("Bold", bold); else doc.registerFont("Bold", "Helvetica-Bold");
-  const files = ["test-report.md", "postman-features.md", "bug-summary.md", "ai-audit.md", "ai-critique.md", "ci-evidence.md", "agent-skill-pseudocode.md"];
-  for (const [fileIndex, file] of files.entries()) {
+  for (const [fileIndex, file] of reportFiles.entries()) {
     if (fileIndex) doc.addPage();
     const lines = fs.readFileSync(path.join(root, "docs", file), "utf8").split(/\r?\n/);
     for (const source of lines) {
@@ -178,12 +192,20 @@ async function writePdf() {
       else doc.font("Body").fontSize(9).fillColor("#000000").text(line, { align: "left", paragraphGap: 3, lineGap: 1 });
     }
   }
+  const diagram = path.join(root, "docs", "agent-skill-diagram.png");
+  if (fs.existsSync(diagram)) {
+    doc.addPage();
+    doc.font("Bold").fontSize(18).fillColor("#17365D").text("Agent Skill Generator Diagram", { paragraphGap: 8 });
+    doc.font("Body").fontSize(8).fillColor("#000000").text("Student-reviewed AI-assisted diagram. The full-resolution PNG and editable Mermaid source are included in docs/.", { paragraphGap: 6 });
+    doc.image(diagram, { fit: [doc.page.width - 92, doc.page.height - 145], align: "center", valign: "center" });
+  }
   doc.end();
   await new Promise((resolve, reject) => { stream.on("finish", resolve); stream.on("error", reject); });
 }
 
 (async () => {
+  writeMarkdownReport();
   await workbook.xlsx.writeFile(path.join(reports, "HW06_Test_Cases_23127414.xlsx"));
   await writePdf();
-  console.log(`Generated ${cases.length} Excel test rows, ${defectRows.length} defects, execution summary, and PDF report.`);
+  console.log(`Generated ${cases.length} Excel test rows, ${defectRows.length} defects, execution summary, Markdown report, and PDF report.`);
 })().catch((error) => { console.error(error); process.exitCode = 1; });

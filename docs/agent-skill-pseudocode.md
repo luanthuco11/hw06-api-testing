@@ -57,4 +57,4 @@ OUTPUT: collection, fixtures, Newman evidence, Excel summary,
         defect drafts, CI workflow, audit, critique, and report
 ```
 
-The student must create the accompanying diagram personally. This pseudocode documents the implemented control flow but is not a substitute for the required self-drawn diagram.
+The accompanying diagram is available as [`agent-skill-diagram.mmd`](agent-skill-diagram.mmd) and [`agent-skill-diagram.png`](agent-skill-diagram.png). It was generated with AI assistance under the teacher's clarified permission and reviewed by the student against this implemented control flow.

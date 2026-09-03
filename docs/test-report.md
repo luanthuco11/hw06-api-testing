@@ -59,17 +59,17 @@ Detailed evidence, affected IDs, actual/expected results, and severity proposals
 
 ## CI and Agent Skill
 
-- CI contains a small known-good smoke collection so genuine full-suite conformance failures are not relabeled as passing behavior.
-- Public pass/fail run links are recorded in `docs/ci-evidence.md`, and the final branch is restored to green.
+- CI retains the known-good smoke pass/fail demonstration and also executes the complete 279-case audited suite against its exact accepted baseline.
+- Public pass/fail/full-suite run links are recorded in `docs/ci-evidence.md`, and the final branch is green without hiding the known SUT failures.
 - `agent-skill/audited-api-test-workflow` packages the audit and evidence process. Its structure and scripts were validated against this submission.
 - The complete truthful list of exercised Postman/Newman features is in `docs/postman-features.md`.
-- Generator pseudocode is in `docs/agent-skill-pseudocode.md`; the companion diagram remains student-owned.
+- Generator pseudocode is in `docs/agent-skill-pseudocode.md`; the student-reviewed Mermaid source and PNG are in `docs/agent-skill-diagram.mmd` and `docs/agent-skill-diagram.png`.
 
-## Remaining student-owned evidence
+## Final student confirmations
 
-The following cannot be fabricated by automation and must be completed by the student:
+The diagram, 30 screenshots, 27 published GitHub Issues, and CI evidence are complete. The student must still:
 
-- draw the required test-generator diagram personally;
-- record the Agent Skill demonstration video;
-- capture GitHub Issue/Newman/CI screenshots through a connected browser and attach them to the relevant issues;
+- add exact interaction times or attach the retained raw AI conversation/export where the audit requires time-level traceability;
 - select the final self-assessed grade after checking the official rubric.
+
+The Agent Skill demonstration video is encouraged by the assignment and can be added as optional supporting evidence.
