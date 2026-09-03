@@ -6,7 +6,8 @@
   "scripts": {
     "test:api": "newman run postman/eshop-hw06.postman_collection.json -e postman/local.postman_environment.json",
     "test:api:report": "newman run postman/eshop-hw06.postman_collection.json -e postman/local.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export reports/newman/newman-report.html",
-    "build:deliverables": "node scripts/generate-deliverables.js"
+    "build:deliverables": "node scripts/generate-deliverables.js",
+    "build:issue-drafts": "node scripts/generate-issue-drafts.js"
   },
   "devDependencies": {
     "exceljs": "^4.4.0",
