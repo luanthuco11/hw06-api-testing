@@ -1,0 +1,30 @@
+296ccec	2026-09-03T02:57:00.000Z	docs: add final report sources and deliverable generator
+eb779bd	2026-09-03T02:46:23.000Z	ci: restore passing smoke expectation and document runs
+ee9c636	2026-09-03T02:43:14.000Z	test(ci): demonstrate one intentional smoke failure
+2aa67f6	2026-09-02T18:17:38.000Z	ci: add passing Newman API smoke workflow
+2cb8202	2026-09-02T18:15:51.000Z	feat(skill): add audited API testing workflow
+d6aacd4	2026-09-02T18:13:05.000Z	test(fr14-delete): execute collection and record Newman evidence
+a401bfb	2026-09-02T18:09:11.000Z	test(fr14-delete): add student-approved additional cases
+a38296a	2026-09-02T18:08:30.000Z	test(fr14-delete): audit generated category deletion cases
+552cc2b	2026-09-02T18:05:10.000Z	test(fr14-delete): add AI-generated category deletion cases
+584336b	2026-09-02T18:03:33.000Z	test(fr14-put): execute collection and record Newman evidence
+69cc30b	2026-09-02T17:59:55.000Z	test(fr14-put): add student-approved additional cases
+c0c4a64	2026-09-02T17:59:30.000Z	test(fr14-put): audit generated category update cases
+7957f58	2026-09-02T17:57:10.000Z	test(fr14-put): add AI-generated category update cases
+8953985	2026-09-02T17:56:13.000Z	test(fr14-post): execute collection and record Newman evidence
+075618d	2026-09-02T17:50:54.000Z	test(fr14-post): add student-approved additional cases
+9b910e9	2026-09-02T17:50:06.000Z	test(fr14-post): audit generated category creation cases
+0111494	2026-09-02T17:47:11.000Z	test(fr14-post): add AI-generated category creation cases
+7b3f11c	2026-09-02T17:45:00.000Z	test(fr14-get): execute collection and record Newman evidence
+5bb70db	2026-09-02T17:39:55.000Z	test(fr14-get): add student-approved additional cases
+3c8e151	2026-09-02T17:11:33.000Z	test(fr14-get): audit generated category read cases
+0021361	2026-09-02T17:07:54.000Z	test(fr14-get): add AI-generated category read cases
+3c3b436	2026-09-02T17:06:54.000Z	test(fr11): execute collection and record Newman evidence
+68b2ef9	2026-09-02T17:00:51.000Z	test(fr11): add student-selected security cases
+4bfbb69	2026-09-02T16:58:31.000Z	test(fr11): audit and correct generated cases
+6aa20c4	2026-09-02T16:55:50.000Z	test(fr11): add AI-generated order history cases
+306ac38	2026-09-02T16:51:46.000Z	test(fr01): execute collection and record Newman evidence
+73fb219	2026-09-02T16:42:14.000Z	test(fr01): add student-selected security cases
+a3bd555	2026-09-02T16:38:22.000Z	test(fr01): audit and correct generated cases
+1053201	2026-09-02T16:33:38.000Z	test(fr01): add AI-generated registration cases
+9f5302c	2026-09-02T16:31:04.000Z	commit (initial): chore: initialize HW06 API testing repository

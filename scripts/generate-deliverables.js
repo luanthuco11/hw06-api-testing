@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const { execFileSync } = require("child_process");
 const ExcelJS = require("exceljs");
 const PDFDocument = require("pdfkit");
 
@@ -77,7 +76,12 @@ execution.sutCommit = "85af3ba875c88283615e22cb108f13e2fccaf0e9";
 execution.generatedAt = new Date().toISOString();
 execution.failingCaseIds = [...failingIds].sort();
 fs.writeFileSync(path.join(reports, "execution-summary.json"), `${JSON.stringify(execution, null, 2)}\n`, "utf8");
-const commitLog = execFileSync("git", ["log", "--date=iso-strict", "--pretty=format:%h%x09%ad%x09%s"], { cwd: root, encoding: "utf8" });
+const reflogPath = path.join(root, ".git", "logs", "HEAD");
+const commitLog = fs.readFileSync(reflogPath, "utf8").trim().split(/\r?\n/).map((line) => {
+  const match = line.match(/^[0-9a-f]+ ([0-9a-f]+) .+> (\d+) [+-]\d+\t(?:commit: )?(.*)$/);
+  if (!match) return null;
+  return `${match[1].slice(0, 7)}\t${new Date(Number(match[2]) * 1000).toISOString()}\t${match[3]}`;
+}).filter(Boolean).reverse().join("\n");
 fs.writeFileSync(path.join(reports, "commit-log.txt"), `${commitLog}\n`, "utf8");
 
 const cases = [];
