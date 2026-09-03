@@ -20,7 +20,7 @@
   "variable": [
     { "key": "baseUrl", "value": "http://127.0.0.1:3000", "type": "string" },
     { "key": "studentId", "value": "23127414", "type": "string" },
-    { "key": "ciExpectedStatus", "value": "418", "type": "string" },
+    { "key": "ciExpectedStatus", "value": "200", "type": "string" },
     { "key": "adminToken", "value": "", "type": "string" }
   ],
   "item": [
