@@ -3,6 +3,7 @@
 ## Submission identity and scope
 
 - Student ID: `23127414`
+- Public GitHub repository: <https://github.com/luanthuco11/hw06-api-testing>
 - SUT: `ttbhanh/eshop-sut` at commit `85af3ba875c88283615e22cb108f13e2fccaf0e9`
 - Tools: Postman and Newman 6.2.2
 - Required attribution: collection-level script inserts and logs `X-Student-Id: 23127414`
