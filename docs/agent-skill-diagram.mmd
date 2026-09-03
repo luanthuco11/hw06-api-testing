@@ -1,0 +1,88 @@
+flowchart TB
+    subgraph INPUTS["1. Inputs"]
+        direction LR
+        SPEC["API specification<br/>and security requirements"]
+        SCOPE["Selected endpoint<br/>AI target >= 35<br/>Human target >= 5"]
+        SID["Student ID"]
+    end
+
+    subgraph DESIGN["2. Contract analysis and test design"]
+        direction LR
+        EXTRACT["Extract explicit contract<br/>parameters, schemas, states, security"]
+        GENERATE["AI generates partitioned cases<br/>valid, invalid, boundary, schema,<br/>auth, security, state, concurrency"]
+        COUNT{"At least 35<br/>AI cases?"}
+        EXPAND["Expand uncovered partitions"]
+    end
+
+    subgraph REVIEW["3. Human audit and extension"]
+        direction LR
+        AUDIT{"Review each<br/>AI-generated case"}
+        VALID["VALID<br/>Keep explicit oracle"]
+        INVALID["INVALID<br/>Correct contradiction or scope"]
+        INCOMPLETE["INCOMPLETE<br/>Identify missing oracle"]
+        DECIDE{"Student can define<br/>a justified oracle?"}
+        ORACLE["Apply student-reviewed oracle"]
+        OBSERVE["Observation only<br/>Do not claim a defect"]
+        MERGE["Merge reviewed AI cases"]
+        GAPS["Find coverage gaps"]
+        HUMAN["Student reviews/adds<br/>at least 5 new cases"]
+    end
+
+    subgraph EXECUTION["4. Deterministic implementation and execution"]
+        direction LR
+        FIXTURE["Prepare deterministic fixtures"]
+        BUILD["Build Postman collection<br/>requests and assertions"]
+        HEADER["Collection pre-request script<br/>adds X-Student-Id"]
+        COMPILE["Compile/validate test scripts"]
+        NEWMAN["Execute with Newman<br/>against runnable SUT"]
+        HARNESS{"Harness or script<br/>failure?"}
+        REPAIR["Reject run, repair harness,<br/>reset fixture"]
+        ACCEPT["Accept attributable run<br/>save HTML and JSON evidence"]
+    end
+
+    subgraph RESULTS["5. Analysis and deliverables"]
+        direction LR
+        CLASSIFY{"Interpret result using<br/>audited oracle"}
+        PASS["Passing conformance evidence"]
+        DEFECT["Confirmed mismatch<br/>group by root cause"]
+        NOTE["Specification-gap or<br/>hardening observation"]
+        OUTPUT["Deliverables<br/>Postman collection and Newman HTML<br/>Excel summary and Markdown/PDF report<br/>GitHub Issues, screenshots and CI evidence"]
+    end
+
+    SPEC --> EXTRACT
+    SCOPE --> EXTRACT
+    EXTRACT --> GENERATE --> COUNT
+    COUNT -- "No" --> EXPAND --> GENERATE
+    COUNT -- "Yes" --> AUDIT
+
+    AUDIT -- "Contract-supported" --> VALID --> MERGE
+    AUDIT -- "Wrong or conflicting" --> INVALID --> ORACLE --> MERGE
+    AUDIT -- "Underspecified" --> INCOMPLETE --> DECIDE
+    DECIDE -- "Yes" --> ORACLE
+    DECIDE -- "No" --> OBSERVE --> MERGE
+    MERGE --> GAPS --> HUMAN --> FIXTURE
+
+    SID --> HEADER
+    FIXTURE --> BUILD --> HEADER --> COMPILE --> NEWMAN --> HARNESS
+    HARNESS -- "Yes" --> REPAIR --> FIXTURE
+    HARNESS -- "No" --> ACCEPT --> CLASSIFY
+
+    CLASSIFY -- "Oracle satisfied" --> PASS --> OUTPUT
+    CLASSIFY -- "Valid oracle violated" --> DEFECT --> OUTPUT
+    CLASSIFY -- "Incomplete / exploratory" --> NOTE --> OUTPUT
+
+    classDef input fill:#e0f2fe,stroke:#0369a1,color:#0c4a6e,stroke-width:2px;
+    classDef process fill:#eef2ff,stroke:#4f46e5,color:#312e81,stroke-width:2px;
+    classDef human fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px;
+    classDef execution fill:#ecfdf5,stroke:#059669,color:#064e3b,stroke-width:2px;
+    classDef decision fill:#fff7ed,stroke:#ea580c,color:#7c2d12,stroke-width:2px;
+    classDef defect fill:#fee2e2,stroke:#dc2626,color:#7f1d1d,stroke-width:2px;
+    classDef output fill:#f3e8ff,stroke:#9333ea,color:#581c87,stroke-width:2px;
+
+    class SPEC,SCOPE,SID input;
+    class EXTRACT,GENERATE,EXPAND process;
+    class AUDIT,VALID,INVALID,INCOMPLETE,DECIDE,ORACLE,OBSERVE,MERGE,GAPS,HUMAN human;
+    class FIXTURE,BUILD,HEADER,COMPILE,NEWMAN,REPAIR,ACCEPT execution;
+    class COUNT,HARNESS,CLASSIFY decision;
+    class DEFECT defect;
+    class PASS,NOTE,OUTPUT output;
