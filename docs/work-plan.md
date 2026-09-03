@@ -16,7 +16,7 @@
 4. [x] Create 27 GitHub Issues and attach one real representative execution screenshot to each.
 5. [x] Add GitHub Actions, retain one passing and one intentionally failing run, and restore the final branch to passing.
 6. [x] Design and implement the API-test-generator skill, validate it, and provide a student-reviewed diagram. A demo video remains optional.
-7. [ ] Complete reports, spreadsheet, AI critique, commit log, PDFs, and submission archive. Core documents are generated; AI interaction times/raw export, final grade, refreshed outputs, and ZIP remain.
+7. [x] Complete reports, spreadsheet, AI critique, approximate commit-based AI time traceability, commit log, PDFs, student-selected 100/100 grade, and final submission archive.
 
 ## Evidence constraints
 

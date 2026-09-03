@@ -65,11 +65,20 @@ Detailed evidence, affected IDs, actual/expected results, and severity proposals
 - The complete truthful list of exercised Postman/Newman features is in `docs/postman-features.md`.
 - Generator pseudocode is in `docs/agent-skill-pseudocode.md`; the student-reviewed Mermaid source and PNG are in `docs/agent-skill-diagram.mmd` and `docs/agent-skill-diagram.png`.
 
-## Final student confirmations
+## Self-assessment
 
-The diagram, 30 screenshots, 27 published GitHub Issues, and CI evidence are complete. The student must still:
+| No. | Official criterion | Maximum | Self-assessed grade |
+| ---: | --- | ---: | ---: |
+| 1 | API 1 — full pipeline | 30 | 30 |
+| 2 | API 2 — full pipeline | 30 | 30 |
+| 3 | API 3 — full pipeline | 30 | 30 |
+| 4 | Agent Skill — AI-driven test generator | 10 | 10 |
+| | **Total** | **100** | **100** |
 
-- add exact interaction times or attach the retained raw AI conversation/export where the audit requires time-level traceability;
-- select the final self-assessed grade after checking the official rubric.
+The student selected 100/100 after reviewing the completed evidence. The final package is named `23127414_HW06_AI_API_100.zip`.
+
+## Final evidence status
+
+The diagram, 30 screenshots, 27 published GitHub Issues, full-suite CI, AI audit, Markdown/PDF reports, Excel workbook, commit log, and self-assessment are complete. AI interaction times use the nearest verifiable Git commit timestamps as approximate recorded times; they are not represented as exact prompt-send times.
 
 The Agent Skill demonstration video is encouraged by the assignment and can be added as optional supporting evidence.

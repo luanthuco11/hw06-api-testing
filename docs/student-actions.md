@@ -4,7 +4,7 @@
 - [x] Capture real Newman/GitHub evidence, including the student header and representative defect executions.
 - [x] Publish 27 GitHub Issues and attach the matching representative screenshots.
 - [x] Capture the public CI passing and intentional failing pages.
-- [ ] Add exact interaction times or a raw conversation export to complete the AI audit traceability requirement.
-- [ ] Review the official rubric and enter the self-assessed grade; do not use an automatically chosen grade.
-- [ ] Confirm the final ZIP name after choosing the grade: `23127414_HW06_AI_API_<grade>.zip`.
+- [x] Use the nearest Git commit timestamps as approximate, verifiable recorded times for the AI audit; do not claim they are exact prompt-send times.
+- [x] Review the official rubric and enter the student-selected self-assessed grade: 100/100.
+- [x] Confirm the final ZIP name: `23127414_HW06_AI_API_100.zip`.
 - [ ] Optional: record the Agent Skill demo using `agent-skill-demo-script.md` as additional evidence.

@@ -67,11 +67,11 @@ The generator reads raw Newman JSON from the sibling `.runtime` diagnostics dire
 
 | No. | Official criterion | Maximum | Self-assessed grade |
 | ---: | --- | ---: | ---: |
-| 1 | API 1 — full pipeline | 30 | TBD by student |
-| 2 | API 2 — full pipeline | 30 | TBD by student |
-| 3 | API 3 — full pipeline | 30 | TBD by student |
-| 4 | Agent Skill — AI-driven test generator | 10 | TBD by student |
-| | **Total** | **100** | **TBD by student** |
+| 1 | API 1 — full pipeline | 30 | 30 |
+| 2 | API 2 — full pipeline | 30 | 30 |
+| 3 | API 3 — full pipeline | 30 | 30 |
+| 4 | Agent Skill — AI-driven test generator | 10 | 10 |
+| | **Total** | **100** | **100** |
 
 Completion evidence:
 
@@ -88,6 +88,6 @@ Completion evidence:
 | GitHub Issues with screenshots | 27 published Issues, each with one representative execution screenshot | Complete |
 | Generator diagram | Mermaid source and rendered PNG reviewed by the student under the teacher-approved AI policy | Complete |
 | Demo video | Recording script is ready; the assignment describes video as encouraged | Optional |
-| Final self-assessed grade/ZIP | Student must choose grade from official rubric | Pending student decision |
+| Final self-assessed grade/ZIP | Student selected 100/100; package name `23127414_HW06_AI_API_100.zip` | Complete |
 
-See [`docs/student-actions.md`](docs/student-actions.md) for the final student-confirmation steps.
+See [`docs/student-actions.md`](docs/student-actions.md) for the completed submission checklist and optional video item.
