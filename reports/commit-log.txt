@@ -1,39 +1,576 @@
-9f5302c	2026-09-02T23:31:04+07:00	chore: initialize HW06 API testing repository
-1053201	2026-09-02T23:33:38+07:00	test(fr01): add AI-generated registration cases
-a3bd555	2026-09-02T23:38:22+07:00	test(fr01): audit and correct generated cases
-73fb219	2026-09-02T23:42:14+07:00	test(fr01): add student-selected security cases
-306ac38	2026-09-02T23:51:46+07:00	test(fr01): execute collection and record Newman evidence
-6aa20c4	2026-09-02T23:55:50+07:00	test(fr11): add AI-generated order history cases
-4bfbb69	2026-09-02T23:58:31+07:00	test(fr11): audit and correct generated cases
-68b2ef9	2026-09-03T00:00:51+07:00	test(fr11): add student-selected security cases
-3c3b436	2026-09-03T00:06:54+07:00	test(fr11): execute collection and record Newman evidence
-0021361	2026-09-03T00:07:54+07:00	test(fr14-get): add AI-generated category read cases
-3c8e151	2026-09-03T00:11:33+07:00	test(fr14-get): audit generated category read cases
-5bb70db	2026-09-03T00:39:55+07:00	test(fr14-get): add student-approved additional cases
-7b3f11c	2026-09-03T00:45:00+07:00	test(fr14-get): execute collection and record Newman evidence
-0111494	2026-09-03T00:47:11+07:00	test(fr14-post): add AI-generated category creation cases
-9b910e9	2026-09-03T00:50:06+07:00	test(fr14-post): audit generated category creation cases
-075618d	2026-09-03T00:50:54+07:00	test(fr14-post): add student-approved additional cases
-8953985	2026-09-03T00:56:13+07:00	test(fr14-post): execute collection and record Newman evidence
-7957f58	2026-09-03T00:57:10+07:00	test(fr14-put): add AI-generated category update cases
-c0c4a64	2026-09-03T00:59:30+07:00	test(fr14-put): audit generated category update cases
-69cc30b	2026-09-03T00:59:55+07:00	test(fr14-put): add student-approved additional cases
-584336b	2026-09-03T01:03:33+07:00	test(fr14-put): execute collection and record Newman evidence
-552cc2b	2026-09-03T01:05:10+07:00	test(fr14-delete): add AI-generated category deletion cases
-a38296a	2026-09-03T01:08:30+07:00	test(fr14-delete): audit generated category deletion cases
-a401bfb	2026-09-03T01:09:11+07:00	test(fr14-delete): add student-approved additional cases
-d6aacd4	2026-09-03T01:13:05+07:00	test(fr14-delete): execute collection and record Newman evidence
-2cb8202	2026-09-03T01:15:51+07:00	feat(skill): add audited API testing workflow
-2aa67f6	2026-09-03T01:17:38+07:00	ci: add passing Newman API smoke workflow
-ee9c636	2026-09-03T09:43:14+07:00	test(ci): demonstrate one intentional smoke failure
-eb779bd	2026-09-03T09:46:23+07:00	ci: restore passing smoke expectation and document runs
-296ccec	2026-09-03T09:57:00+07:00	docs: add final report sources and deliverable generator
-12f53e1	2026-09-03T10:00:31+07:00	docs: generate PDF Excel and execution summaries
-8c28ca2	2026-09-03T10:02:11+07:00	docs(issues): add reproducible defect drafts
-a95cb10	2026-09-03T10:07:41+07:00	docs: complete rubric-aligned report content
-373fefa	2026-09-03T10:08:32+07:00	docs: refresh complete PDF Excel and commit evidence
-ecde5b3	2026-09-03T11:38:24+07:00	docs: add student-reviewed diagram and execution screenshots
-c13d9a4	2026-09-03T11:50:07+07:00	ci: run full audited API suite against baseline
-ba647f7	2026-09-03T12:02:06+07:00	docs: record completed evidence and full CI coverage
-faa01da	2026-09-03T12:03:16+07:00	docs: regenerate final Markdown PDF and Excel deliverables
-5b78f8f	2026-09-03T12:10:49+07:00	docs: record final self-assessment and audit times
+﻿* commit 1362b0b7940499844d74de6a512f9a8ac6cda238
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 12:57:04 2026 +0700
+| 
+|     docs: complete README test summary metrics
+| 
+|  README.md | 4 ++++
+|  1 file changed, 4 insertions(+)
+| 
+* commit 0ff51a8f8d7da6dbb6d9fb05307e7366d1526589
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 12:51:05 2026 +0700
+| 
+|     docs: add public repository link to main report
+| 
+|  docs/test-report.md             | 1 +
+|  reports/HW06_Report_23127414.md | 1 +
+|  2 files changed, 2 insertions(+)
+| 
+* commit 8aa0cea336bd98a2ddf16e7fa19d178272b3d54b
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 12:11:18 2026 +0700
+| 
+|     docs: generate graded final submission reports
+| 
+|  reports/HW06_Report_23127414.md       |  40 ++++++++++++++++++++++++++++----
+|  reports/HW06_Report_23127414.pdf      | Bin 291771 -> 293785 bytes
+|  reports/HW06_Test_Cases_23127414.xlsx | Bin 34307 -> 34307 bytes
+|  reports/commit-log.txt                |   2 ++
+|  reports/execution-summary.json        |   2 +-
+|  5 files changed, 38 insertions(+), 6 deletions(-)
+| 
+* commit 5b78f8fe38149222e3a6c40f24fcd384f82e42d1
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 12:10:49 2026 +0700
+| 
+|     docs: record final self-assessment and audit times
+| 
+|  README.md               | 14 +++++++-------
+|  docs/ai-audit.md        | 23 ++++++++++++++++++++++-
+|  docs/student-actions.md |  6 +++---
+|  docs/test-report.md     | 17 +++++++++++++----
+|  docs/work-plan.md       |  2 +-
+|  5 files changed, 46 insertions(+), 16 deletions(-)
+| 
+* commit faa01dade96efc20987fa2575196d93ea2f93c7a
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 12:03:16 2026 +0700
+| 
+|     docs: regenerate final Markdown PDF and Excel deliverables
+| 
+|  reports/HW06_Report_23127414.md       | 298 ++++++++++++++++++++++++++++++++
+|  reports/HW06_Report_23127414.pdf      | Bin 79353 -> 291771 bytes
+|  reports/HW06_Test_Cases_23127414.xlsx | Bin 34307 -> 34307 bytes
+|  reports/commit-log.txt                |  70 ++++----
+|  reports/execution-summary.json        |   2 +-
+|  5 files changed, 336 insertions(+), 34 deletions(-)
+| 
+* commit ba647f73e70ca7f19707617877a2b33b137254a2
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 12:02:06 2026 +0700
+| 
+|     docs: record completed evidence and full CI coverage
+| 
+|  .github/issue-drafts/README.md   |  8 +++---
+|  README.md                        | 12 ++++++---
+|  docs/agent-skill-pseudocode.md   |  2 +-
+|  docs/ai-audit.md                 |  8 ++++--
+|  docs/bug-screenshot-checklist.md | 54 +++++++++++++++++++-------------------
+|  docs/bug-summary.md              |  5 +++-
+|  docs/ci-evidence.md              | 12 +++++++--
+|  docs/postman-features.md         |  2 +-
+|  docs/student-actions.md          | 11 ++++----
+|  docs/test-report.md              | 16 +++++------
+|  docs/work-plan.md                | 10 +++----
+|  evidence/README.md               | 11 ++++++--
+|  scripts/generate-deliverables.js | 44 +++++++++++++++++++++++--------
+|  13 files changed, 123 insertions(+), 72 deletions(-)
+| 
+* commit c13d9a48266fa296fc9f1e47bed634c47907ed4c
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 11:50:07 2026 +0700
+| 
+|     ci: run full audited API suite against baseline
+| 
+|  .github/workflows/api-smoke.yml        |  6 ++
+|  .gitignore                             |  1 +
+|  package.json                           |  1 +
+|  scripts/prepare-fr01-fixture.js        | 21 +++++++
+|  scripts/prepare-fr11-fixture.js        |  2 +-
+|  scripts/prepare-fr14-delete-fixture.js |  2 +-
+|  scripts/prepare-fr14-get-fixture.js    |  2 +-
+|  scripts/prepare-fr14-post-fixture.js   |  2 +-
+|  scripts/prepare-fr14-put-fixture.js    |  2 +-
+|  scripts/run-full-ci-suite.js           | 94 ++++++++++++++++++++++++++++++++
+|  scripts/sut-backend.js                 | 15 +++++
+|  scripts/verify-full-ci-baseline.js     | 76 ++++++++++++++++++++++++++
+|  12 files changed, 219 insertions(+), 5 deletions(-)
+| 
+* commit ecde5b3ab9a5f7ce349b1721a3141cd43a285e93
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 11:38:24 2026 +0700
+| 
+|     docs: add student-reviewed diagram and execution screenshots
+| 
+|  docs/agent-skill-diagram.mmd         |  88 +++++++++++++++++++++++++++++++++
+|  docs/agent-skill-diagram.png         | Bin 0 -> 209584 bytes
+|  docs/bug-screenshot-checklist.md     |  35 +++++++++++++
+|  evidence/01-x-student-id-console.png | Bin 0 -> 70239 bytes
+|  evidence/02-ci-passing-run.png       | Bin 0 -> 106663 bytes
+|  evidence/03-ci-failing-run.png       | Bin 0 -> 103804 bytes
+|  evidence/04-BUG-FR01-001.png         | Bin 0 -> 42675 bytes
+|  evidence/05-BUG-FR01-002.png         | Bin 0 -> 41908 bytes
+|  evidence/06-BUG-FR01-003.png         | Bin 0 -> 44663 bytes
+|  evidence/07-BUG-FR01-004.png         | Bin 0 -> 44105 bytes
+|  evidence/08-BUG-FR11-001.png         | Bin 0 -> 51548 bytes
+|  evidence/09-BUG-FR11-002.png         | Bin 0 -> 47421 bytes
+|  evidence/10-BUG-FR11-003.png         | Bin 0 -> 51044 bytes
+|  evidence/11-BUG-FR11-004.png         | Bin 0 -> 52292 bytes
+|  evidence/12-BUG-FR11-005.png         | Bin 0 -> 50886 bytes
+|  evidence/13-BUG-FR14GET-001.png      | Bin 0 -> 47002 bytes
+|  evidence/14-BUG-FR14POST-001.png     | Bin 0 -> 48516 bytes
+|  evidence/15-BUG-FR14POST-002.png     | Bin 0 -> 49371 bytes
+|  evidence/16-BUG-FR14POST-003.png     | Bin 0 -> 47330 bytes
+|  evidence/17-BUG-FR14POST-004.png     | Bin 0 -> 42079 bytes
+|  evidence/18-BUG-FR14POST-005.png     | Bin 0 -> 48093 bytes
+|  evidence/19-BUG-FR14PUT-001.png      | Bin 0 -> 45931 bytes
+|  evidence/20-BUG-FR14PUT-002.png      | Bin 0 -> 49438 bytes
+|  evidence/21-BUG-FR14PUT-003.png      | Bin 0 -> 47415 bytes
+|  evidence/22-BUG-FR14PUT-004.png      | Bin 0 -> 47466 bytes
+|  evidence/23-BUG-FR14PUT-005.png      | Bin 0 -> 44336 bytes
+|  evidence/24-BUG-FR14PUT-006.png      | Bin 0 -> 47949 bytes
+|  evidence/25-BUG-FR14DELETE-001.png   | Bin 0 -> 52259 bytes
+|  evidence/26-BUG-FR14DELETE-002.png   | Bin 0 -> 47433 bytes
+|  evidence/27-BUG-FR14DELETE-003.png   | Bin 0 -> 48053 bytes
+|  evidence/28-BUG-FR14DELETE-004.png   | Bin 0 -> 46696 bytes
+|  evidence/29-BUG-FR14DELETE-005.png   | Bin 0 -> 47145 bytes
+|  evidence/30-BUG-FR14DELETE-006.png   | Bin 0 -> 47795 bytes
+|  33 files changed, 123 insertions(+)
+| 
+* commit 373fefad3953c158e926ed655385122c5830ce4c
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 10:08:32 2026 +0700
+| 
+|     docs: refresh complete PDF Excel and commit evidence
+| 
+|  reports/HW06_Report_23127414.pdf      | Bin 60750 -> 79353 bytes
+|  reports/HW06_Test_Cases_23127414.xlsx | Bin 34308 -> 34307 bytes
+|  reports/commit-log.txt                |   3 +++
+|  reports/execution-summary.json        |   2 +-
+|  scripts/generate-deliverables.js      |   2 +-
+|  5 files changed, 5 insertions(+), 2 deletions(-)
+| 
+* commit a95cb105821c85de3b643a6280ca59116248382b
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 10:07:41 2026 +0700
+| 
+|     docs: complete rubric-aligned report content
+| 
+|  README.md                        | 10 +++++++
+|  docs/agent-skill-pseudocode.md   | 60 ++++++++++++++++++++++++++++++++++++++
+|  docs/ai-audit.md                 |  1 +
+|  docs/postman-features.md         | 18 ++++++++++++
+|  docs/test-report.md              |  2 ++
+|  scripts/generate-deliverables.js |  2 +-
+|  6 files changed, 92 insertions(+), 1 deletion(-)
+| 
+* commit 8c28ca2026bca5b82ad129248083512e4e6d2b81
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 10:02:11 2026 +0700
+| 
+|     docs(issues): add reproducible defect drafts
+| 
+|  .github/issue-drafts/BUG-FR01-001.md       | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR01-002.md       | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR01-003.md       | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR01-004.md       | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR11-001.md       | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR11-002.md       | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR11-003.md       | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR11-004.md       | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR11-005.md       | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14DELETE-001.md | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14DELETE-002.md | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14DELETE-003.md | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14DELETE-004.md | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14DELETE-005.md | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14DELETE-006.md | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14GET-001.md    | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14POST-001.md   | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14POST-002.md   | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14POST-003.md   | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14POST-004.md   | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14POST-005.md   | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14PUT-001.md    | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14PUT-002.md    | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14PUT-003.md    | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14PUT-004.md    | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14PUT-005.md    | 26 ++++++++++
+|  .github/issue-drafts/BUG-FR14PUT-006.md    | 26 ++++++++++
+|  .github/issue-drafts/README.md             | 12 +++++
+|  package.json                               |  3 +-
+|  scripts/generate-issue-drafts.js           | 76 ++++++++++++++++++++++++++++
+|  30 files changed, 792 insertions(+), 1 deletion(-)
+| 
+* commit 12f53e1669c7b811ecf083629f2925a029383d55
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 10:00:31 2026 +0700
+| 
+|     docs: generate PDF Excel and execution summaries
+| 
+|  .gitignore                            |   1 +
+|  reports/HW06_Report_23127414.pdf      | Bin 0 -> 60750 bytes
+|  reports/HW06_Test_Cases_23127414.xlsx | Bin 0 -> 34308 bytes
+|  reports/commit-log.txt                |  30 +++++++
+|  reports/execution-summary.json        | 140 ++++++++++++++++++++++++++++++++
+|  scripts/generate-deliverables.js      |   8 +-
+|  6 files changed, 177 insertions(+), 2 deletions(-)
+| 
+* commit 296ccec367c32c907726bfe9979eeb0fd83fdd47
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 09:57:00 2026 +0700
+| 
+|     docs: add final report sources and deliverable generator
+| 
+|  README.md                        |   63 +-
+|  docs/agent-skill-demo-script.md  |   20 +
+|  docs/ai-critique.md              |    7 +
+|  docs/bug-summary.md              |   33 +
+|  docs/ci-evidence.md              |    3 +-
+|  docs/student-actions.md          |    9 +
+|  docs/test-report.md              |   73 +++
+|  docs/work-plan.md                |   14 +-
+|  package-lock.json                | 1215 +++++++++++++++++++++++++++++++++++-
+|  package.json                     |    7 +-
+|  scripts/generate-deliverables.js |  185 ++++++
+|  11 files changed, 1600 insertions(+), 29 deletions(-)
+| 
+* commit eb779bdc6af3883d029dd560ca7b94453f489869
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 09:46:23 2026 +0700
+| 
+|     ci: restore passing smoke expectation and document runs
+| 
+|  docs/ai-audit.md                         |  1 +
+|  docs/ci-evidence.md                      | 20 ++++++++++++++++++++
+|  postman/ci-smoke.postman_collection.json |  2 +-
+|  3 files changed, 22 insertions(+), 1 deletion(-)
+| 
+* commit ee9c636ed101c8a9233d34d30b2fc9f01d9b98a9
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 09:43:14 2026 +0700
+| 
+|     test(ci): demonstrate one intentional smoke failure
+| 
+|  postman/ci-smoke.postman_collection.json | 2 +-
+|  1 file changed, 1 insertion(+), 1 deletion(-)
+| 
+* commit 2aa67f698156e022b5e9c5b9fa7b52e6eab6404b
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 01:17:38 2026 +0700
+| 
+|     ci: add passing Newman API smoke workflow
+| 
+|  .github/workflows/api-smoke.yml          | 59 +++++++++++++++++++++
+|  postman/ci-smoke.postman_collection.json | 82 ++++++++++++++++++++++++++++++
+|  2 files changed, 141 insertions(+)
+| 
+* commit 2cb8202f58c18421deb53f3cb13b9861c50fdbd6
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 01:15:51 2026 +0700
+| 
+|     feat(skill): add audited API testing workflow
+| 
+|  agent-skill/audited-api-test-workflow/SKILL.md    | 30 ++++++++++
+|  .../audited-api-test-workflow/agents/openai.yaml  |  4 ++
+|  .../references/oracle-checklist.md                | 19 ++++++
+|  .../scripts/summarize_newman.js                   | 39 +++++++++++++
+|  .../scripts/validate_collection.js                | 64 +++++++++++++++++++++
+|  docs/ai-audit.md                                  |  1 +
+|  6 files changed, 157 insertions(+)
+| 
+* commit d6aacd434b2a58ed69c3d8198d53bb471007b26d
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 01:13:05 2026 +0700
+| 
+|     test(fr14-delete): execute collection and record Newman evidence
+| 
+|  docs/ai-audit.md                                  |     1 +
+|  postman/eshop-hw06.postman_collection.json        |  1984 +++
+|  reports/newman/fr14-delete-main.html              | 13141 ++++++++++++++++++
+|  reports/newman/fr14-delete-single.html            |  1261 ++
+|  scripts/build-fr14-delete-collection.js           |    99 +
+|  scripts/prepare-fr14-delete-fixture.js            |    30 +
+|  test-cases/fr14-delete-categories/ai-generated.md |     6 +-
+|  .../fr14-delete-categories/execution-results.md   |    84 +
+|  test-cases/fr14-delete-categories/human-added.md  |     2 +-
+|  9 files changed, 16604 insertions(+), 4 deletions(-)
+| 
+* commit a401bfb91c89d9e598dcbf6c5a2a76269cfee3ed
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 01:09:11 2026 +0700
+| 
+|     test(fr14-delete): add student-approved additional cases
+| 
+|  docs/ai-audit.md                                 |  1 +
+|  test-cases/fr14-delete-categories/human-added.md | 20 ++++++++++++++++++++
+|  2 files changed, 21 insertions(+)
+| 
+* commit a38296accc5343048e63391285f187ce480ebb8e
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 01:08:30 2026 +0700
+| 
+|     test(fr14-delete): audit generated category deletion cases
+| 
+|  docs/ai-audit.md                                 |  1 +
+|  test-cases/fr14-delete-categories/human-audit.md | 36 ++++++++++++++++++++++
+|  2 files changed, 37 insertions(+)
+| 
+* commit 552cc2beb85c4d7d2a70df05d841d28190882581
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 01:05:10 2026 +0700
+| 
+|     test(fr14-delete): add AI-generated category deletion cases
+| 
+|  docs/ai-audit.md                                  |  1 +
+|  test-cases/fr14-delete-categories/ai-generated.md | 63 +++++++++++++++++++++
+|  2 files changed, 64 insertions(+)
+| 
+* commit 584336b33abe6a325a83d1704d794487c3976e9f
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 01:03:33 2026 +0700
+| 
+|     test(fr14-put): execute collection and record Newman evidence
+| 
+|  docs/ai-audit.md                                  |     1 +
+|  postman/eshop-hw06.postman_collection.json        |  2286 +++
+|  reports/newman/fr14-put.html                      | 13830 ++++++++++++++++++
+|  scripts/build-fr14-put-collection.js              |   104 +
+|  scripts/prepare-fr14-put-fixture.js               |    29 +
+|  test-cases/fr14-put-categories/ai-generated.md    |     6 +-
+|  .../fr14-put-categories/execution-results.md      |    86 +
+|  test-cases/fr14-put-categories/human-added.md     |     2 +-
+|  8 files changed, 16340 insertions(+), 4 deletions(-)
+| 
+* commit 69cc30b22ce8e54d8eae3f46bdc65c27e52941f2
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:59:55 2026 +0700
+| 
+|     test(fr14-put): add student-approved additional cases
+| 
+|  docs/ai-audit.md                              |  1 +
+|  test-cases/fr14-put-categories/human-added.md | 21 +++++++++++++++++++++
+|  2 files changed, 22 insertions(+)
+| 
+* commit c0c4a6476c4fbe8398f9b17a625ba0268bd1b30e
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:59:30 2026 +0700
+| 
+|     test(fr14-put): audit generated category update cases
+| 
+|  docs/ai-audit.md                              |  1 +
+|  test-cases/fr14-put-categories/human-audit.md | 31 +++++++++++++++++++++++++
+|  2 files changed, 32 insertions(+)
+| 
+* commit 7957f58b457cd6a797e4050e0f03a106b36cae10
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:57:10 2026 +0700
+| 
+|     test(fr14-put): add AI-generated category update cases
+| 
+|  docs/ai-audit.md                               |  1 +
+|  test-cases/fr14-put-categories/ai-generated.md | 63 ++++++++++++++++++++++++
+|  2 files changed, 64 insertions(+)
+| 
+* commit 89539859a4f0d18d8689ecc3c1d80305907c0552
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:56:13 2026 +0700
+| 
+|     test(fr14-post): execute collection and record Newman evidence
+| 
+|  docs/ai-audit.md                                  |     1 +
+|  postman/eshop-hw06.postman_collection.json        |  2188 +++
+|  reports/newman/fr14-post.html                     | 13622 ++++++++++++++++++
+|  scripts/build-fr14-post-collection.js             |   134 +
+|  scripts/prepare-fr14-post-fixture.js              |    19 +
+|  test-cases/fr14-post-categories/ai-generated.md   |     6 +-
+|  .../fr14-post-categories/execution-results.md     |    80 +
+|  test-cases/fr14-post-categories/human-added.md    |     2 +-
+|  8 files changed, 16048 insertions(+), 4 deletions(-)
+| 
+* commit 075618dc1fafc6117f9839bfb4476a7d0a15d63d
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:50:54 2026 +0700
+| 
+|     test(fr14-post): add student-approved additional cases
+| 
+|  docs/ai-audit.md                               |  1 +
+|  test-cases/fr14-post-categories/human-added.md | 21 +++++++++++++++++++++
+|  2 files changed, 22 insertions(+)
+| 
+* commit 9b910e9fa3f71e831845bb2d5ed26ae479a148f8
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:50:06 2026 +0700
+| 
+|     test(fr14-post): audit generated category creation cases
+| 
+|  docs/ai-audit.md                               |  1 +
+|  test-cases/fr14-post-categories/human-audit.md | 31 ++++++++++++++++++++++++
+|  2 files changed, 32 insertions(+)
+| 
+* commit 01114948273c7bc0695bcb171293b33327cf952b
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:47:11 2026 +0700
+| 
+|     test(fr14-post): add AI-generated category creation cases
+| 
+|  docs/ai-audit.md                                |  1 +
+|  test-cases/fr14-post-categories/ai-generated.md | 62 +++++++++++++++++++++++
+|  2 files changed, 63 insertions(+)
+| 
+* commit 7b3f11c351c6435091900902cb2fa47fb3d8260e
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:45:00 2026 +0700
+| 
+|     test(fr14-get): execute collection and record Newman evidence
+| 
+|  docs/ai-audit.md                                  |     1 +
+|  postman/eshop-hw06.postman_collection.json        |  1677 +++
+|  reports/newman/fr14-get-default.html              |  1255 +++
+|  reports/newman/fr14-get-empty.html                |  1255 +++
+|  reports/newman/fr14-get-hundred.html              |  1255 +++
+|  reports/newman/fr14-get-large.html                |  1261 +++
+|  reports/newman/fr14-get-main.html                 | 10375 ++++++++++++++++++
+|  reports/newman/fr14-get-one.html                  |  1255 +++
+|  scripts/build-fr14-get-collection.js              |   150 +
+|  scripts/prepare-fr14-get-fixture.js               |    71 +
+|  test-cases/fr14-get-categories/ai-generated.md    |     6 +-
+|  .../fr14-get-categories/execution-results.md      |    51 +
+|  test-cases/fr14-get-categories/human-added.md     |     2 +-
+|  13 files changed, 18610 insertions(+), 4 deletions(-)
+| 
+* commit 5bb70dbf9ec35d2c6b4ccdf62aa4a03dabb37efa
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:39:55 2026 +0700
+| 
+|     test(fr14-get): add student-approved additional cases
+| 
+|  docs/ai-audit.md                              |  1 +
+|  test-cases/fr14-get-categories/human-added.md | 19 +++++++++++++++++++
+|  2 files changed, 20 insertions(+)
+| 
+* commit 3c8e151048329feb8cff8b0941b099890608733f
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:11:33 2026 +0700
+| 
+|     test(fr14-get): audit generated category read cases
+| 
+|  docs/ai-audit.md                              |  1 +
+|  test-cases/fr14-get-categories/human-audit.md | 29 +++++++++++++++++++++++++
+|  2 files changed, 30 insertions(+)
+| 
+* commit 00213613f43c8bf2577e0966c0f2012ac223e42c
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:07:54 2026 +0700
+| 
+|     test(fr14-get): add AI-generated category read cases
+| 
+|  docs/ai-audit.md                               |  1 +
+|  test-cases/fr14-get-categories/ai-generated.md | 63 ++++++++++++++++++++++++
+|  2 files changed, 64 insertions(+)
+| 
+* commit 3c3b43666b730358d8e82a61792b28d5b34163af
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:06:54 2026 +0700
+| 
+|     test(fr11): execute collection and record Newman evidence
+| 
+|  docs/ai-audit.md                                  |     1 +
+|  postman/eshop-hw06.postman_collection.json        |  2236 +++
+|  reports/newman/fr11-newman-report.html            | 13923 ++++++++++++++++++
+|  scripts/build-fr11-collection.js                  |   152 +
+|  scripts/prepare-fr11-fixture.js                   |    70 +
+|  .../fr11-order-history/execution-results.md       |    76 +
+|  6 files changed, 16458 insertions(+)
+| 
+* commit 68b2ef992886b90a26043916c03b48c8b129fdd5
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Thu Sep 3 00:00:51 2026 +0700
+| 
+|     test(fr11): add student-selected security cases
+| 
+|  docs/ai-audit.md                             |  1 +
+|  test-cases/fr11-order-history/human-added.md | 20 ++++++++++++++++++++
+|  2 files changed, 21 insertions(+)
+| 
+* commit 4bfbb697eab43f33fde7f9489c753c33a26b0935
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Wed Sep 2 23:58:31 2026 +0700
+| 
+|     test(fr11): audit and correct generated cases
+| 
+|  docs/ai-audit.md                             |  1 +
+|  test-cases/fr11-order-history/human-audit.md | 66 ++++++++++++++++++++++++++
+|  2 files changed, 67 insertions(+)
+| 
+* commit 6aa20c47ccac834b5ce36e4e697b0665082f1c94
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Wed Sep 2 23:55:50 2026 +0700
+| 
+|     test(fr11): add AI-generated order history cases
+| 
+|  docs/ai-audit.md                              |  1 +
+|  test-cases/fr11-order-history/ai-generated.md | 76 +++++++++++++++++++++++++
+|  2 files changed, 77 insertions(+)
+| 
+* commit 306ac381420b13d613a4da4ad1e98df0fe00cd85
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Wed Sep 2 23:51:46 2026 +0700
+| 
+|     test(fr01): execute collection and record Newman evidence
+| 
+|  docs/ai-audit.md                              |     1 +
+|  postman/eshop-hw06.postman_collection.json    |  2217 ++++
+|  postman/local.postman_environment.json        |    21 +
+|  reports/newman/fr01-newman-report.html        | 13698 ++++++++++++++++++++++
+|  scripts/build-fr01-collection.js              |   258 +
+|  test-cases/fr01-register/execution-results.md |    71 +
+|  6 files changed, 16266 insertions(+)
+| 
+* commit 73fb21960dd8937e218a1d465ae7a8728d6c6116
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Wed Sep 2 23:42:14 2026 +0700
+| 
+|     test(fr01): add student-selected security cases
+| 
+|  docs/ai-audit.md                        |  1 +
+|  test-cases/fr01-register/human-added.md | 18 ++++++++++++++++++
+|  2 files changed, 19 insertions(+)
+| 
+* commit a3bd555247f39f3c50503fa0683ec77fdf3bd089
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Wed Sep 2 23:38:22 2026 +0700
+| 
+|     test(fr01): audit and correct generated cases
+| 
+|  docs/ai-audit.md                        |  1 +
+|  test-cases/fr01-register/human-audit.md | 65 +++++++++++++++++++++++++++++++
+|  2 files changed, 66 insertions(+)
+| 
+* commit 1053201abbea0c4d86927efef3a23963e5ef5d23
+| Author: minhluan <luanthuco11@gmail.com>
+| Date:   Wed Sep 2 23:33:38 2026 +0700
+| 
+|     test(fr01): add AI-generated registration cases
+| 
+|  docs/ai-audit.md                         |  1 +
+|  test-cases/fr01-register/ai-generated.md | 77 ++++++++++++++++++++++++++++++
+|  2 files changed, 78 insertions(+)
+| 
+* commit 9f5302c4310c5d879d426cb8efb25cb4644e9ae2
+  Author: minhluan <luanthuco11@gmail.com>
+  Date:   Wed Sep 2 23:31:04 2026 +0700
+  
+      chore: initialize HW06 API testing repository
+  
+   .gitignore           |    4 +
+   README.md            |   20 +
+   docs/ai-audit.md     |   16 +
+   docs/work-plan.md    |   27 +
+   evidence/README.md   |    3 +
+   package-lock.json    | 2392 ++++++++++++++++++++++++++++++++++++++++++++++++
+   package.json         |   14 +
+   postman/README.md    |    3 +
+   test-cases/README.md |    3 +
+   9 files changed, 2482 insertions(+)
