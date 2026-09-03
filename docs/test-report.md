@@ -62,6 +62,8 @@ Detailed evidence, affected IDs, actual/expected results, and severity proposals
 - CI contains a small known-good smoke collection so genuine full-suite conformance failures are not relabeled as passing behavior.
 - Public pass/fail run links are recorded in `docs/ci-evidence.md`, and the final branch is restored to green.
 - `agent-skill/audited-api-test-workflow` packages the audit and evidence process. Its structure and scripts were validated against this submission.
+- The complete truthful list of exercised Postman/Newman features is in `docs/postman-features.md`.
+- Generator pseudocode is in `docs/agent-skill-pseudocode.md`; the companion diagram remains student-owned.
 
 ## Remaining student-owned evidence
 

@@ -164,7 +164,7 @@ async function writePdf() {
   const bold = boldCandidates.find(fs.existsSync);
   if (regular) doc.registerFont("Body", regular); else doc.registerFont("Body", "Helvetica");
   if (bold) doc.registerFont("Bold", bold); else doc.registerFont("Bold", "Helvetica-Bold");
-  const files = ["test-report.md", "bug-summary.md", "ai-critique.md", "ci-evidence.md"];
+  const files = ["test-report.md", "postman-features.md", "bug-summary.md", "ai-audit.md", "ai-critique.md", "ci-evidence.md", "agent-skill-pseudocode.md"];
   for (const [fileIndex, file] of files.entries()) {
     if (fileIndex) doc.addPage();
     const lines = fs.readFileSync(path.join(root, "docs", file), "utf8").split(/\r?\n/);

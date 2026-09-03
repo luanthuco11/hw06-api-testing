@@ -61,6 +61,16 @@ The generator reads raw Newman JSON from the sibling `.runtime` diagnostics dire
 
 ## Self-assessment checkpoint
 
+| No. | Official criterion | Maximum | Self-assessed grade |
+| ---: | --- | ---: | ---: |
+| 1 | API 1 — full pipeline | 30 | TBD by student |
+| 2 | API 2 — full pipeline | 30 | TBD by student |
+| 3 | API 3 — full pipeline | 30 | TBD by student |
+| 4 | Agent Skill — AI-driven test generator | 10 | TBD by student |
+| | **Total** | **100** | **TBD by student** |
+
+Completion evidence:
+
 | Requirement | Evidence | Status |
 | --- | --- | --- |
 | Pool A/B/C scope | Six endpoint families in collection/report | Complete |
