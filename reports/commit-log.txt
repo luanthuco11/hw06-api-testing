@@ -1,33 +1,37 @@
-a95cb10	2026-09-03T03:07:41.000Z	docs: complete rubric-aligned report content
-8c28ca2	2026-09-03T03:02:11.000Z	docs(issues): add reproducible defect drafts
-12f53e1	2026-09-03T03:00:31.000Z	docs: generate PDF Excel and execution summaries
-296ccec	2026-09-03T02:57:00.000Z	docs: add final report sources and deliverable generator
-eb779bd	2026-09-03T02:46:23.000Z	ci: restore passing smoke expectation and document runs
-ee9c636	2026-09-03T02:43:14.000Z	test(ci): demonstrate one intentional smoke failure
-2aa67f6	2026-09-02T18:17:38.000Z	ci: add passing Newman API smoke workflow
-2cb8202	2026-09-02T18:15:51.000Z	feat(skill): add audited API testing workflow
-d6aacd4	2026-09-02T18:13:05.000Z	test(fr14-delete): execute collection and record Newman evidence
-a401bfb	2026-09-02T18:09:11.000Z	test(fr14-delete): add student-approved additional cases
-a38296a	2026-09-02T18:08:30.000Z	test(fr14-delete): audit generated category deletion cases
-552cc2b	2026-09-02T18:05:10.000Z	test(fr14-delete): add AI-generated category deletion cases
-584336b	2026-09-02T18:03:33.000Z	test(fr14-put): execute collection and record Newman evidence
-69cc30b	2026-09-02T17:59:55.000Z	test(fr14-put): add student-approved additional cases
-c0c4a64	2026-09-02T17:59:30.000Z	test(fr14-put): audit generated category update cases
-7957f58	2026-09-02T17:57:10.000Z	test(fr14-put): add AI-generated category update cases
-8953985	2026-09-02T17:56:13.000Z	test(fr14-post): execute collection and record Newman evidence
-075618d	2026-09-02T17:50:54.000Z	test(fr14-post): add student-approved additional cases
-9b910e9	2026-09-02T17:50:06.000Z	test(fr14-post): audit generated category creation cases
-0111494	2026-09-02T17:47:11.000Z	test(fr14-post): add AI-generated category creation cases
-7b3f11c	2026-09-02T17:45:00.000Z	test(fr14-get): execute collection and record Newman evidence
-5bb70db	2026-09-02T17:39:55.000Z	test(fr14-get): add student-approved additional cases
-3c8e151	2026-09-02T17:11:33.000Z	test(fr14-get): audit generated category read cases
-0021361	2026-09-02T17:07:54.000Z	test(fr14-get): add AI-generated category read cases
-3c3b436	2026-09-02T17:06:54.000Z	test(fr11): execute collection and record Newman evidence
-68b2ef9	2026-09-02T17:00:51.000Z	test(fr11): add student-selected security cases
-4bfbb69	2026-09-02T16:58:31.000Z	test(fr11): audit and correct generated cases
-6aa20c4	2026-09-02T16:55:50.000Z	test(fr11): add AI-generated order history cases
-306ac38	2026-09-02T16:51:46.000Z	test(fr01): execute collection and record Newman evidence
-73fb219	2026-09-02T16:42:14.000Z	test(fr01): add student-selected security cases
-a3bd555	2026-09-02T16:38:22.000Z	test(fr01): audit and correct generated cases
-1053201	2026-09-02T16:33:38.000Z	test(fr01): add AI-generated registration cases
-9f5302c	2026-09-02T16:31:04.000Z	commit (initial): chore: initialize HW06 API testing repository
+9f5302c	2026-09-02T23:31:04+07:00	chore: initialize HW06 API testing repository
+1053201	2026-09-02T23:33:38+07:00	test(fr01): add AI-generated registration cases
+a3bd555	2026-09-02T23:38:22+07:00	test(fr01): audit and correct generated cases
+73fb219	2026-09-02T23:42:14+07:00	test(fr01): add student-selected security cases
+306ac38	2026-09-02T23:51:46+07:00	test(fr01): execute collection and record Newman evidence
+6aa20c4	2026-09-02T23:55:50+07:00	test(fr11): add AI-generated order history cases
+4bfbb69	2026-09-02T23:58:31+07:00	test(fr11): audit and correct generated cases
+68b2ef9	2026-09-03T00:00:51+07:00	test(fr11): add student-selected security cases
+3c3b436	2026-09-03T00:06:54+07:00	test(fr11): execute collection and record Newman evidence
+0021361	2026-09-03T00:07:54+07:00	test(fr14-get): add AI-generated category read cases
+3c8e151	2026-09-03T00:11:33+07:00	test(fr14-get): audit generated category read cases
+5bb70db	2026-09-03T00:39:55+07:00	test(fr14-get): add student-approved additional cases
+7b3f11c	2026-09-03T00:45:00+07:00	test(fr14-get): execute collection and record Newman evidence
+0111494	2026-09-03T00:47:11+07:00	test(fr14-post): add AI-generated category creation cases
+9b910e9	2026-09-03T00:50:06+07:00	test(fr14-post): audit generated category creation cases
+075618d	2026-09-03T00:50:54+07:00	test(fr14-post): add student-approved additional cases
+8953985	2026-09-03T00:56:13+07:00	test(fr14-post): execute collection and record Newman evidence
+7957f58	2026-09-03T00:57:10+07:00	test(fr14-put): add AI-generated category update cases
+c0c4a64	2026-09-03T00:59:30+07:00	test(fr14-put): audit generated category update cases
+69cc30b	2026-09-03T00:59:55+07:00	test(fr14-put): add student-approved additional cases
+584336b	2026-09-03T01:03:33+07:00	test(fr14-put): execute collection and record Newman evidence
+552cc2b	2026-09-03T01:05:10+07:00	test(fr14-delete): add AI-generated category deletion cases
+a38296a	2026-09-03T01:08:30+07:00	test(fr14-delete): audit generated category deletion cases
+a401bfb	2026-09-03T01:09:11+07:00	test(fr14-delete): add student-approved additional cases
+d6aacd4	2026-09-03T01:13:05+07:00	test(fr14-delete): execute collection and record Newman evidence
+2cb8202	2026-09-03T01:15:51+07:00	feat(skill): add audited API testing workflow
+2aa67f6	2026-09-03T01:17:38+07:00	ci: add passing Newman API smoke workflow
+ee9c636	2026-09-03T09:43:14+07:00	test(ci): demonstrate one intentional smoke failure
+eb779bd	2026-09-03T09:46:23+07:00	ci: restore passing smoke expectation and document runs
+296ccec	2026-09-03T09:57:00+07:00	docs: add final report sources and deliverable generator
+12f53e1	2026-09-03T10:00:31+07:00	docs: generate PDF Excel and execution summaries
+8c28ca2	2026-09-03T10:02:11+07:00	docs(issues): add reproducible defect drafts
+a95cb10	2026-09-03T10:07:41+07:00	docs: complete rubric-aligned report content
+373fefa	2026-09-03T10:08:32+07:00	docs: refresh complete PDF Excel and commit evidence
+ecde5b3	2026-09-03T11:38:24+07:00	docs: add student-reviewed diagram and execution screenshots
+c13d9a4	2026-09-03T11:50:07+07:00	ci: run full audited API suite against baseline
+ba647f7	2026-09-03T12:02:06+07:00	docs: record completed evidence and full CI coverage
