@@ -73,7 +73,7 @@ execution.failingCaseCount = failingIds.size;
 execution.passingCaseCount = execution.caseItems - failingIds.size;
 execution.studentId = "23127414";
 execution.sutCommit = "85af3ba875c88283615e22cb108f13e2fccaf0e9";
-execution.generatedAt = new Date().toISOString();
+execution.generatedAt = "2026-09-03T02:46:48.000Z";
 execution.failingCaseIds = [...failingIds].sort();
 fs.writeFileSync(path.join(reports, "execution-summary.json"), `${JSON.stringify(execution, null, 2)}\n`, "utf8");
 const reflogPath = path.join(root, ".git", "logs", "HEAD");

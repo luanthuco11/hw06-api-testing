@@ -1,3 +1,6 @@
+a95cb10	2026-09-03T03:07:41.000Z	docs: complete rubric-aligned report content
+8c28ca2	2026-09-03T03:02:11.000Z	docs(issues): add reproducible defect drafts
+12f53e1	2026-09-03T03:00:31.000Z	docs: generate PDF Excel and execution summaries
 296ccec	2026-09-03T02:57:00.000Z	docs: add final report sources and deliverable generator
 eb779bd	2026-09-03T02:46:23.000Z	ci: restore passing smoke expectation and document runs
 ee9c636	2026-09-03T02:43:14.000Z	test(ci): demonstrate one intentional smoke failure
